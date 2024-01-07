@@ -1,0 +1,23 @@
+<div class="container mainCoursel">
+  <p class="title">{{title}}</p>
+  <div #swiperContainer class="swiper-container">
+    <div class="swiper-wrapper">
+      <ng-container *ngFor="let movie of videoContents">
+        <div  (mouseenter)="setHoverMovie(movie)" (mouseleave)="clearHoverMovie()"   class="swiper-slide">
+          <img [src]=" movie.poster_path| img" alt="" />
+          <div @fade *ngIf="(movie.title === this.selectedContent) || (movie.name === this.selectedContent)" class="desc ">
+            <span class="spanTitle">{{movie.original_title}}</span>
+            <p class="overview">{{movie.overview | description:120}}</p>
+            <div class="vote">
+              <p class="parag text-xs">
+                <span class="spanVote">Vote Average :{{movie.vote_average}} </span>
+                <i class="fa fa-2x fa-chevron-circle-down" aria-hidden="true"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+</div>

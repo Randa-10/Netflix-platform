@@ -1,0 +1,48 @@
+.bg-main{
+height: 68px;
+z-index: 10;
+position: sticky;
+
+}
+.deark-nav{
+background-color: #141414;
+padding-left: 2.5rem;
+padding-right: 2.5rem;
+justify-content: space-between;
+align-items: center;
+}
+.parnet{
+  gap: 1.25rem;
+
+}
+ul{
+align-items: center;
+}
+ul li.items{
+  list-style: none;
+  color: rgb(252, 252, 252);
+  cursor: pointer;
+  font-weight: 200;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  }
+ul li.items:hover{
+  color: #9CA3AF;
+transition: 1s;
+}
+.welcomeUser{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+}
+.name{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+}
+.welcomeUser a{
+  color: rgb(252, 252, 252);
+  text-decoration: none;
+}
