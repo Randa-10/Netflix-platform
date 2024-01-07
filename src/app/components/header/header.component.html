@@ -1,13 +1,13 @@
-<header class="bg-main deark-nav sticky top-0 d-flex px-10">
+<!-- <header class="bg-main deark-nav sticky top-0 d-flex px-10"> -->
   <!-- logo   -->
-  <div class="d-flex pt-2 parnet">
+  <!-- <div class="d-flex pt-2 parnet">
     <img src="/assets\pngwing.com.png" alt=" flex-logo" width="110">
     <ul class="d-flex items-center" *ngFor ="let item of navList">
       <li class="items">{{item}}</li>
     </ul>
-   </div>
+   </div> -->
 <!-- welcome user -->
-   <div class="welcomeUser ">
+   <!-- <div class="welcomeUser ">
     <div class="name">
     <a href="/">welcome <strong>Randa</strong></a>
     <img [src]="userImage" width="42" alt="">
@@ -16,4 +16,28 @@
     &nbsp;| &nbsp;
     <a href="/">Signout</a>
    </div>
+</header> -->
+<!-- app.component.html -->
+<header class="bg-main deark-nav sticky top-0 d-flex px-10">
+  <!-- logo -->
+  <div class="d-flex pt-2 parent">
+    <img src="/assets\pngwing.com.png" alt="flex-logo" width="110">
+    <mat-toolbar class="nav-list" *ngIf="!isSmallScreen">
+      <ng-container *ngFor="let item of navList">
+        <button mat-button>{{ item }}</button>
+      </ng-container>
+    </mat-toolbar>
+  </div>
+  <!-- welcome user -->
+  <div class="welcomeUser">
+    <div class="name">
+      <a href="/">Welcome <strong>Randa</strong></a>
+      <img [src]="userImage" width="42" alt="">
+    </div>
+    <button mat-icon-button (click)="toggleNavList()" *ngIf="isSmallScreen">
+      <mat-icon>menu</mat-icon>
+    </button>
+    &nbsp;| &nbsp;
+    <a href="/">Signout</a>
+  </div>
 </header>

@@ -1,11 +1,12 @@
-<div class="row">
+<div class="row container">
 <iframe width="560" height="315"  [src]="videoUrl" frameborder="0" allowfullscreen></iframe>
 
 <div class="caption row">
+
   <div class="titleOfVideo col-lg-12 col-md-12 col-sm-12">
-    <h1 class="name">{{bannerTitle}} </h1>
-    <p class="description">{{bannerOverview |description:200}}</p>
-       <div class="col-4 col-sm-4">
+    <h1 class="name col-lg-6 col-md-12 col-sm-12">{{bannerTitle}} </h1>
+    <p class="description col-lg-6 col-md-12 col-sm-12">{{ bannerOverview | description: isSmallScreen ? 80 : 250 }}</p>
+    <div class="d-flex">
         <button class="btnPlay">
           ▶️ Play
         </button>
@@ -14,6 +15,7 @@
         </button>
       </div>
     </div>
+ 
 </div>
 </div>
 <!-- The Vampire diariesLorem ipsum dolor sit amet
