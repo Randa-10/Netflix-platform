@@ -17,7 +17,7 @@ export class BannerComponent implements OnChanges {
 @Input() key='r_pUE7OcN8w';
 private sanitizer=inject(DomSanitizer)
 private breakpointObserver=inject (BreakpointObserver)
-isSmallScreen: boolean = false;
+@Input() isSmallScreen: boolean = false;
 constructor(){
   this.breakpointObserver
   .observe([Breakpoints.XSmall, Breakpoints.Small])

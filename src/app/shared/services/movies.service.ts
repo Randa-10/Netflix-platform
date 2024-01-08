@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IVideoContent } from '../models/ivideo-content';
 
 const options = {
   params: {
@@ -39,8 +41,8 @@ getBannerVideo(id: number) {
   return this.http.get(`https://api.themoviedb.org/3/movie/${id}/videos`, options);
 }
 
-getBannerDetail(id: number) {
-  return this.http.get(`https://api.themoviedb.org/3/movie/${id}`, options);
+getBannerDetail(id: number):Observable<IVideoContent> {
+  return this.http.get<IVideoContent>(`https://api.themoviedb.org/3/movie/${id}`, options);
 }
 
 getNowPlayingMovies() {

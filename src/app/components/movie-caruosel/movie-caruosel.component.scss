@@ -12,7 +12,7 @@
 margin-bottom: 0.75rem;
 margin-left: 0.75rem;
 font-size: 1.5rem;
-line-height: 2rem;
+// line-height: 2rem;
 font-weight: 600;
 }
 
@@ -37,9 +37,6 @@ padding-bottom: 0.75rem;
 width: 90%;
 }
 .parag{
-//  display: flex;
-// justify-content: space-between;
-// align-items: center;
 font-size: 0.75rem;
 line-height: 1rem;
 display: flex;
@@ -51,7 +48,6 @@ display: flex;
 }
 .swiper-slide {
   position: relative;
-  // margin-right: 10px;
   transition: all 300ms ease-in-out;
   border-radius: 5px;
   margin: 0 20px;
@@ -110,23 +106,28 @@ display: flex;
   .swiper-button-prev {
     display: none;
   }
+  .desc {
+    height: 100%;
+    position: absolute;
+    // width: 100px;
+    bottom: 0;
+    padding: 0.5rem;
+
+  }
 }
 
 @media screen and (max-width: 400px) {
   .swiper-slide img {
-    // max-width: 100.5rem;
     width: 100px;
     border-radius: 2px;
   }
   .desc {
-    // transition: all 300ms ease-in-out;
-    // background-color: #181818c4;
     height: 100%;
     position: absolute;
     width: 100px;
     bottom: 0;
     padding: 0.5rem;
-  
+
   }
-  
+
 }

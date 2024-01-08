@@ -1,17 +1,19 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { NgFor, NgIf } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild, inject } from '@angular/core';
 import Swiper from 'swiper';
 import { IVideoContent } from '../../shared/models/ivideo-content';
 import { DescriptionPipe } from '../../shared/pipe/description.pipe';
 import { ImgPipe } from '../../shared/pipe/img.pipe';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-movie-caruosel',
   standalone: true,
   templateUrl: './movie-caruosel.component.html',
   styleUrl: './movie-caruosel.component.scss',
-  imports: [NgFor, NgIf,DescriptionPipe,ImgPipe],
+  imports: [NgFor, NgIf,DescriptionPipe,ImgPipe,RouterModule],
   animations: [
     trigger('fade', [
       transition('void => *', [
@@ -26,7 +28,16 @@ export class MovieCaruoselComponent implements OnInit, AfterViewInit {
   @Input() title!: string;
   @ViewChild('swiperContainer') swiperContainer!: ElementRef;
   selectedContent: string | null = null;
-  constructor() { }
+  private breakpointObserver=inject (BreakpointObserver)
+  isSmallScreen: boolean = false;
+
+  constructor(){
+  this.breakpointObserver
+  .observe([Breakpoints.XSmall, Breakpoints.Small])
+  .subscribe(result => {
+    this.isSmallScreen = result.matches;
+  });
+  }
   ngAfterViewInit(): void {
    this.initSwiper();
   }

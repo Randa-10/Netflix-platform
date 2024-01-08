@@ -1,0 +1,31 @@
+<div class="row container">
+  <!-- <iframe width="560" height="315"  [src]="videoUrl" frameborder="0" allowfullscreen></iframe> -->
+
+  <div class="caption row">
+    <div class="titleOfVideo col-lg-12 col-md-12 col-sm-12">
+      <div class="row">
+        <div class="col-lg-4">
+              <img [src]=" movei?.poster_path |img" alt="" class="col-4" />
+        </div>
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <h1 class="name ">{{movei?.original_title}} </h1>
+        <p class="description ">{{ movei?.overview }}</p>
+        <p>{{movei?.original_language}}</p>
+      <p class="description ">vote_average:{{ movei?.vote_average }}</p>
+      </div>
+    </div>
+      <!-- <div class="d-flex">
+          <button class="btnPlay">
+            ▶️ Play
+          </button>
+          <button class="btnMore">
+            More Info
+          </button>
+        </div> -->
+        <!-- <div class="d-flex justify-content-center" role="group" aria-label="Basic example">
+          <button class="border-0" (click)="previousFunc()"[disabled]="currentdetai==productsIDSList[0]" ><i class="fa-solid fa-angles-left fs-4 text-primary"></i></button>
+          <button class="border-0" (click)="nextFunc()" [disabled]="currentdetai==productsIDSList[productsIDSList.length-1]"><i class="fa-solid fa-angles-right fs-4"></i></button>
+        </div> -->
+      </div>
+  </div>
+  </div>
