@@ -37,8 +37,8 @@ getBannerImage(id: number) {
   return this.http.get(`https://api.themoviedb.org/3/movie/${id}/images`, options)
 }
 
-getBannerVideo(id: number) {
-  return this.http.get(`https://api.themoviedb.org/3/movie/${id}/videos`, options);
+getBannerVideo(id: number):Observable<IVideoContent> {
+  return this.http.get<IVideoContent>(`https://api.themoviedb.org/3/movie/${id}/videos`, options);
 }
 
 getBannerDetail(id: number):Observable<IVideoContent> {
