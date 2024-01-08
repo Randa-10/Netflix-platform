@@ -1,31 +1,35 @@
-<div class="row container">
-  <!-- <iframe width="560" height="315"  [src]="videoUrl" frameborder="0" allowfullscreen></iframe> -->
-
-  <div class="caption row">
-    <div class="titleOfVideo col-lg-12 col-md-12 col-sm-12">
-      <div class="row">
-        <div class="col-lg-4">
-              <img [src]=" movei?.poster_path |img" alt="" class="col-4" />
-        </div>
-      <div class="col-lg-6 col-md-12 col-sm-12">
-        <h1 class="name ">{{movei?.original_title}} </h1>
-        <p class="description ">{{ movei?.overview }}</p>
-        <p>{{movei?.original_language}}</p>
-      <p class="description ">vote_average:{{ movei?.vote_average }}</p>
-      </div>
-    </div>
-      <!-- <div class="d-flex">
-          <button class="btnPlay">
-            ▶️ Play
-          </button>
-          <button class="btnMore">
-            More Info
-          </button>
-        </div> -->
+<app-header [userImage]="userProfileImg"/>
         <!-- <div class="d-flex justify-content-center" role="group" aria-label="Basic example">
           <button class="border-0" (click)="previousFunc()"[disabled]="currentdetai==productsIDSList[0]" ><i class="fa-solid fa-angles-left fs-4 text-primary"></i></button>
           <button class="border-0" (click)="nextFunc()" [disabled]="currentdetai==productsIDSList[productsIDSList.length-1]"><i class="fa-solid fa-angles-right fs-4"></i></button>
         </div> -->
-      </div>
+      <!-- </div>
   </div>
+  </div> -->
+<div class="container mt-5">
+  <h2 class="mb-4">Movie Details</h2>
+  <div class="row ">
+      <div class="col-md-3">
+          <!-- Poster Image -->
+          <img [src]=" movei?.poster_path |img" alt="" class="poster col-12  image-fluid"/>
+        </div>
+      <div class="col-md-9  ">
+          <!-- <h4>Basic Information</h4> -->
+          <ul class="list-group p-5 ">
+              <li class=""><h2><strong>Title:</strong>{{movei?.original_title}}</h2> </li>
+              <li class=""><strong>Year of Release:</strong>{{ movei?.overview }}</li>
+              <li class=""><strong>Date:</strong> {{movei?.release_date }}</li>
+              <li class=""><strong>original language:</strong> {{ movei?.original_language }}</li>
+              <li class=""><strong>vote_count:</strong> {{ movei?.vote_count }}</li>
+
+      <!-- </div> -->
+  <!-- </div> -->
+
+  <!-- <div class="row mt-4"> -->
+    <!-- <div class="col-md-12"> -->
+      <h4 (click)="toggleTrailer()">Watch Trailer <span class="watch-icon "><i class="fas fa-play"></i></span></h4>
+      <iframe *ngIf="showTrailer"  height="315" [src]="videoUrl" frameborder="0" allowfullscreen></iframe>
+     </ul></div>
   </div>
+
+</div>
