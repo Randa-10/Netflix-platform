@@ -9,6 +9,7 @@ import { Router } from 'express';
 import { HeaderComponent } from '../header/header.component';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NgIf } from '@angular/common';
+import { MovieCaruoselComponent } from '../movie-caruosel/movie-caruosel.component';
 
 @Component({
     selector: 'app-movie-details',
@@ -26,7 +27,7 @@ export class MovieDetailsComponent implements OnInit {
   productsIDSList:number[]=[];
   currentPrdIndex:number=0;
   @Input() key='r_pUE7OcN8w';
-
+  // rating!: number;
   constructor(private moviesService: MoviesService, private activatedRoute: ActivatedRoute ) {
     this.movieService = moviesService;
     this.movieService2 = activatedRoute;

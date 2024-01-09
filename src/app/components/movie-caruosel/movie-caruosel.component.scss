@@ -12,10 +12,19 @@
 margin-bottom: 0.75rem;
 margin-left: 0.75rem;
 font-size: 1.5rem;
-// line-height: 2rem;
 font-weight: 600;
 }
+.btndetails {
+  background-color: #565859;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid #565859;
+}
 
+.btndetails:hover {
+  opacity: 0.8;
+}
 .spanTitle{
   display: flex;
 flex-wrap: wrap;

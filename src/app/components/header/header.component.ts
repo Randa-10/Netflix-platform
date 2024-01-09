@@ -16,8 +16,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 })
 export class HeaderComponent {
   @Input({required:true}) userImage :string =''
-  // navList = ["Home", "Tv Shows", "News & Popular", "My List", "Browse by Language"];
-  navList = ['Home', 'About', 'Contact'];
+  navList = ["Home", "My List", "About", "Contact"];
+  // navList = ['Home', 'About', 'Contact'];
   // userImage = '/assets\pngwing.com.png';
   isSmallScreen: boolean = false;
 
@@ -33,4 +33,11 @@ export class HeaderComponent {
     this.isSmallScreen = !this.isSmallScreen;
     console.log('Toggling navigation list');
   }
+  isOpen = false;
+  isClose=false
+  toggleSidebar() {
+    this.isOpen = !this.isOpen;
+    this.isClose=!this.isClose
+  }
+
 }
