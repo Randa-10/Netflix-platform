@@ -16,109 +16,83 @@
    </div>
 </header> -->
 
-<header class="bg-main deark-nav sticky top-0 d-flex px-10">
-   <div class="d-flex pt-2 parent">
+<header class="bg-main">
+   <!-- <div class="d-flex pt-2 parent">
     <img src="/assets\pngwing.com.png" alt="flex-logo" width="110">
     <div class="nav-list" *ngIf="!isSmallScreen">
       <ul class="d-flex items-center" *ngFor ="let item of navList">
         <li class="items">{{item}}</li>
       </ul>
     </div>
-  </div>
+  </div> -->
+  <!-- <button mat-icon-button (click)="toggleNavList()" *ngIf="isSmallScreen">
+    <mat-icon>menu</mat-icon>
+  </button> -->
  <div class="welcomeUser">
-    <div class="name">
+    <!-- <div class="name">
       <a href="/">Welcome <strong>Randa</strong></a>
       <img [src]="userImage" width="42" alt="">
-    </div>
-    <button mat-icon-button (click)="toggleNavList()" *ngIf="isSmallScreen">
-      <mat-icon>menu</mat-icon>
-    </button>
-    &nbsp;| &nbsp;
-    <a href="/">Signout</a>
+    </div> -->
+
+    <!-- &nbsp;| &nbsp; -->
+    <!-- <a href="/">Signout</a> -->
     <div [ngClass]="{ open: isOpen }" class="sidebar" >
       <button (click)="toggleSidebar()" class="btn list btn-dark">
         <i class="fa-solid fa-x icon"></i>
       </button>
-      <h5 class="mt-2">Amazon Dashboard</h5>
       <a
-        ><i class="fa-solid fa-chart-simple p-2"></i> Statistic</a
+        ><i class="fa-solid fa-chart-simple p-2"></i> Home</a
       >
       <a
-        ><i class="fa-solid fa-code p-2"></i> My product</a
+        ><i class="fa-solid fa-code p-2"></i> My List</a
       >
       <a
-        ><i class="fa-brands fa-product-hunt p-2"></i> Add Products</a
+        ><i class="fa-brands fa-product-hunt p-2"></i> About</a
       >
       <a >
-        <i class="fa-solid fa-cart-shopping p-2"></i> Orders</a
+        <i class="fa-solid fa-cart-shopping p-2"></i>Contact</a
       >
-      <a >
-        <i class="fa-brands fa-intercom p-2"></i>My CustomersData</a
-      >
+
+
     </div>
   </div>
 </header>
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
-    <div [ngClass]="{ open: isOpen }" class="sidebar" >
-      <button (click)="toggleSidebar()" class="btn list btn-dark">
-        <i class="fa-solid fa-x icon"></i>
-      </button>
-      <h5 class="mt-2">Amazon Dashboard</h5>
-      <a routerLink="/home/overall"
-        ><i class="fa-solid fa-chart-simple p-2"></i> Statistic</a
-      >
-      <a routerLink="/home/dashboard"
-        ><i class="fa-solid fa-code p-2"></i> My product</a
-      >
-      <a routerLink="/home/products"
-        ><i class="fa-brands fa-product-hunt p-2"></i> Add Products</a
-      >
-      <a routerLink="/home/orders">
-        <i class="fa-solid fa-cart-shopping p-2"></i> Orders</a
-      >
-      <a routerLink="/home/clients">
-        <i class="fa-brands fa-intercom p-2"></i>My CustomersData</a
-      >
-    </div>
-    <a class="navbar-brand col-md-4 col-sm-2">
+<!--logo-->
+     <a class="navbar-brand col-sm-2">
       <button
         class="btn list btn-dark d-block d-sm-none"
         (click)="toggleSidebar()"
       >
-        <i class="fa-solid fa-list"></i>
-        <img src="./assets/amzon-logo.png" height="30vh" />
+        <i class="fa-solid fa-list"><img src="/assets\pngwing.com.png" alt="flex-logo" width="80">
+        </i>
       </button>
-
-      <button class="btn list btn-dark d-none d-sm-block">
-        <i class="fa-solid fa-list"></i>
-        <!-- <img src="./assets/amzon-logo.png" height="30vh" /> -->
+      <button class="btn list btn-none d-none d-sm-block">
+        <img src="/assets\pngwing.com.png" alt="flex-logo" width="110">
       </button>
     </a>
-    <!-- <img src="./assets/amzon-logo.png" height="30vh" /> -->
+    <div class="nav-list" *ngIf="!isSmallScreen">
+      <ul class="d-flex items-center" *ngFor ="let item of navList">
+        <li class="items">{{item}}</li>
+      </ul>
+    </div>
+    <!-- <div class="nav-list">
+    <ul class="d-flex justify-content-space-between mx-2" >
+      <li class="items">Home</li>
+      <li class="items">My List</li>
+      <li class="items">About</li>
+      <li class="items">Contact</li>
+
+    </ul>
+  </div> -->
+
     <div class="col-sm-5 d-flex justify-content-end" id="navbarNav">
       <div class="ml-auto">
    y
-        <!-- <button
-          class="btn btn-warning"
-          [routerLink]="'Users/sign-up'"
-          *ngIf="!isLoggedIn"
-        >
-          Sign Up
-        </button> -->
-        <!-- <button
-          class="btn btn-warning"
-          [routerLink]="'Users/login'"
-          (click)="logout()"
-          *ngIf="isLoggedIn"
-          [disabled]="!isLoggedIn"
-        >
-          Logout
-        </button> -->
-
-        <a type="button" class="mx-2" [ngStyle]="{ color: 'white' }">
+        <!-- <a type="button" class="mx-2" [ngStyle]="{ color: 'white' }">
           <i class="fa-solid fa-earth-americas"></i>
-        </a>
+        </a> -->
       </div>
     </div>
   </div>

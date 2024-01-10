@@ -23,7 +23,7 @@ export class HeaderComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver
-      .observe([Breakpoints.XSmall, Breakpoints.Small])
+      .observe([Breakpoints.XSmall])
       .subscribe((result) => {
         this.isSmallScreen = result.matches;
       });
