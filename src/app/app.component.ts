@@ -15,6 +15,6 @@ import { LoginComponent } from './pages/login/login.component';
     imports: [CommonModule, RouterOutlet, NavbarComponent, FooterComponent, HeaderComponent,BrowseComponent,LoginComponent]
 })
 export class AppComponent {
-  title = 'Angular-projectt';
+  title = 'Netflix';
 
 }

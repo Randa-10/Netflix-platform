@@ -52,9 +52,15 @@ export class MovieCaruoselComponent implements OnInit, AfterViewInit {
       centeredSlides: true,
       loop: true,
       breakpoints: {
+        300: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+          spaceBetween: 5,
+          centeredSlides: true,
+        },
         600: {
-          slidesPerView: 2,
-          slidesPerGroup: 2,
+          slidesPerView: 3,
+          slidesPerGroup: 3,
           spaceBetween: 5,
           centeredSlides: true,
         },

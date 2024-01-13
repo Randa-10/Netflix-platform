@@ -7,7 +7,7 @@
           <img [src]=" movie.poster_path| img" alt="" />
           <div @fade *ngIf="(movie.title === this.selectedContent) || (movie.name === this.selectedContent)" class="desc ">
             <span class="spanTitle">{{movie.original_title}}</span>
-            <p class="overview">{{movie.overview | description: isSmallScreen ? 80 :120}}</p>
+            <p class="overview">{{movie.overview | description: isSmallScreen ? 120 :120}}</p>
             <div class="vote">
               <p class="parag text-xs">
                <button [routerLink]="['/details',movie.id]" class="btndetails"> details</button>
