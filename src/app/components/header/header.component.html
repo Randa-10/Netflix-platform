@@ -1,4 +1,4 @@
-<!-- <header class="bg-main deark-nav sticky top-0 d-flex px-10">
+<header class="bg-main deark-nav sticky top-0 d-flex px-10">
   <div class="d-flex pt-2 parnet">
     <img src="/assets\pngwing.com.png" alt=" flex-logo" width="110">
     <ul class="d-flex items-center" *ngFor ="let item of navList">
@@ -7,14 +7,14 @@
    </div>
    <div class="welcomeUser ">
     <div class="name">
-    <a href="/">welcome <strong>Randa</strong></a>
-    <img [src]="userImage" width="42" alt="">
+    <a href="/">welcome <strong>{{name}}</strong></a>
+    <img [src]="profileImage" width="42" alt="">
     </div>
 
     &nbsp;| &nbsp;
-    <a href="/">Signout</a>
+    <a href="/" (click)="signOut()">Signout</a>
    </div>
-</header> -->
+</header>
 
 <header class="bg-main">
    <!-- <div class="d-flex pt-2 parent">

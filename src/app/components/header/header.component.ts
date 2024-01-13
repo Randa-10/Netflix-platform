@@ -1,11 +1,12 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 // import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 // import { MatCommonModule } from '@angular/material/core';
 // import { MatIconButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { AuthServiceService } from '../../shared/services/auth-service.service';
 
 @Component({
   selector: 'app-header',
@@ -16,10 +17,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 })
 export class HeaderComponent {
   @Input({required:true}) userImage :string =''
+  auth=inject(AuthServiceService)
   navList = ["Home", "My List", "About", "Contact"];
   // navList = ['Home', 'About', 'Contact'];
-  // userImage = '/assets\pngwing.com.png';
-  isSmallScreen: boolean = false;
+  name=JSON.parse(sessionStorage.getItem('loggedInUser')!).name
+  profileImage=JSON.parse(sessionStorage.getItem('loggedInUser')!).picture
+    isSmallScreen: boolean = false;
 
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver
@@ -40,4 +43,8 @@ export class HeaderComponent {
     this.isClose=!this.isClose
   }
 
+  signOut(){
+    sessionStorage.removeItem("loggedInUser");
+    this.auth.signOut();
+  }
 }
