@@ -10,6 +10,7 @@ import { HeaderComponent } from '../header/header.component';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NgIf } from '@angular/common';
 import { MovieCaruoselComponent } from '../movie-caruosel/movie-caruosel.component';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-movie-details',
@@ -27,11 +28,11 @@ export class MovieDetailsComponent implements OnInit {
   productsIDSList:number[]=[];
   currentPrdIndex:number=0;
   @Input() key='r_pUE7OcN8w';
-  // rating!: number;
   constructor(private moviesService: MoviesService, private activatedRoute: ActivatedRoute ) {
     this.movieService = moviesService;
     this.movieService2 = activatedRoute;
   }
+
   ngOnInit(): void {
     this.movieService2.paramMap.subscribe((paramMap) => {
       this.currentdetai = paramMap.get('id') ? Number(paramMap.get('id')) : 0;
@@ -45,6 +46,8 @@ export class MovieDetailsComponent implements OnInit {
         }
       );
     });
+      // this.getBannerVideo();
+
   }
 
   private sanitizer=inject(DomSanitizer)

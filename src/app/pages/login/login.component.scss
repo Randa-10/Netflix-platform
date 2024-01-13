@@ -2,7 +2,7 @@
   position: absolute;
 }
 .form{
-  position: absolute;
+position: absolute;
 right: 0;
 left: 0;
 padding: 3rem;
@@ -12,7 +12,9 @@ border-radius: 0.5rem;
 width: 100%;
 color: #ffffff;
 background-color: #000000;
---bg-opacity: 0.8;
+opacity: 0.8;
+margin-left: auto;
+margin-right: auto;
 
 }
 .title{

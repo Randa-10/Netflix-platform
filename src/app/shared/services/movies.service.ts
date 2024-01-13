@@ -60,4 +60,5 @@ getTopRated() {
 getUpcomingMovies() {
   return this.http.get('https://api.themoviedb.org/3/movie/upcoming', options)
 }
+
 }
