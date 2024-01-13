@@ -4,10 +4,10 @@
   <div class="content">
       <div class="content-inside">
           <div class="photo">
-              <img class="img" src="https://www.gravatar.com/avatar/2acfb745ecf9d4dccb3364752d17f65f?s=260&d=mp" alt="John Doe">
+              <img class="img" [src]="profileImage" alt="John Doe">
           </div>
           <div class="p-2">
-              <h3 class="name">Joh Doe</h3>
+              <h3 class="name">{{name}}</h3>
               <div class="job">
                   <p>Web Developer</p>
               </div>
@@ -22,12 +22,12 @@
                   </tr>
                   <tr>
                       <td class="email">Email</td>
-                      <td class="number">john.com</td>
+                      <td class="number">{{email}}</td>
                   </tr>
               </tbody></table>
 
               <div class="signout">
-                  <a class="anchor" href="#">Sign Out</a>
+                  <a class="anchor" href="#" (click)="signOut()">Sign Out</a>
               </div>
 
           </div>
