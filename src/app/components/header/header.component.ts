@@ -19,8 +19,7 @@ export class HeaderComponent {
   @Input({required:true}) userImage :string =''
   auth=inject(AuthServiceService)
   navList = ["Home", "My List", "About", "Contact"];
-  // navList = ['Home', 'About', 'Contact'];
-  name=JSON.parse(sessionStorage.getItem('loggedInUser')!).name
+  name = JSON.parse(sessionStorage.getItem('loggedInUser')!).name
   profileImage=JSON.parse(sessionStorage.getItem('loggedInUser')!).picture
     isSmallScreen: boolean = false;
 

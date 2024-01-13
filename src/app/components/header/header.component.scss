@@ -4,26 +4,14 @@ z-index: 10;
 position: sticky;
 
 }
-.deark-nav{
-background-color: #141414;
-padding-left: 2.5rem;
-padding-right: 2.5rem;
-justify-content: space-between;
-align-items: center;
-}
-.parnet{
-  gap: 1.25rem;
 
-}
-ul{
-align-items: center;
-}
 ul li.items{
   list-style: none;
   color: rgb(252, 252, 252);
   cursor: pointer;
-  font-weight: 200;
+  font-weight: 400;
   font-size: 0.875rem;
+
   // line-height: 1.25rem;
   }
 ul li.items:hover{
@@ -33,7 +21,7 @@ transition: 1s;
 .welcomeUser{
   display: flex;
   align-items: center;
-  gap: 1rem;
+  // gap: 1rem;
 
 }
 .name{
@@ -47,46 +35,12 @@ transition: 1s;
   text-decoration: none;
 }
 
-/* styles.css */
-.bg-main {
-  // height: 68px;
-  // z-index: 10;
-  // position: sticky;
-}
-
-.deark-nav {
-  background-color: #141414;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.parent {
-  gap: 1.25rem;
-}
-
 .nav-list {
   display: flex;
-  gap: 1rem;
+  // gap: 1rem;
 }
 
-.welcomeUser {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
 
-.name {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.welcomeUser a {
-  color: rgb(252, 252, 252);
-  text-decoration: none;
-}
 ////////////////////
 ///
 nav {
@@ -139,18 +93,6 @@ li{
   margin-left: 0;
   transition: margin-left 0.5s;
 }
-
-// .sidebar2 {
-//   height: 100vh;
-//   width: 0;
-//   position: fixed;
-//   top: 50px;
-//   right: 0;
-//   background-color: #141414;
-//   color: white;
-//   overflow-x: hidden;
-//   transition: width 0.5s;
-// }
 
 .open2 {
   width: 200px;

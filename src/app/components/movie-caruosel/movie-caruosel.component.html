@@ -10,7 +10,7 @@
             <p class="overview">{{movie.overview | description: isSmallScreen ? 80 :120}}</p>
             <div class="vote">
               <p class="parag text-xs">
-               <button [routerLink]="['/details',movie.id]" class="btndetails "> details</button>
+               <button [routerLink]="['/details',movie.id]" class="btndetails"> details</button>
                 <!-- <span class="spanVote">Vote Average :{{movie.vote_average}} </span> -->
                 <!-- <i class="fa fa-chevron-circle-down" aria-hidden="true"></i> -->
                 <i class="fa-regular fa-2x  fa-star"></i>
