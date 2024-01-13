@@ -12,8 +12,8 @@ ul li.items{
   color: rgb(252, 252, 252);
   cursor: pointer;
   font-weight: 400;
-  font-size: 0.875rem;
-
+  font-size: 0.850rem;
+  align-items:center;
   // line-height: 1.25rem;
   }
 ul li.items:hover{
@@ -50,13 +50,16 @@ nav {
   color: #f5f5f5;
   border-bottom: #999797 1px solid;
 }
+.nav2{
+  background-color: #141414;
 
+}
 .list:hover {
   background-color: #474747;
 }
 li{
-  justify-content: space-between;
-  margin-left: 50px;
+  justify-content:start;
+  // margin-left: 50px;
 }
 .icon {
   color: #f3f0f0;
@@ -110,6 +113,7 @@ margin-right: auto;
   width: 50px;
   height: 50px;
 }
+
 .slow-motion {
   text-decoration: none;
   color: #000;

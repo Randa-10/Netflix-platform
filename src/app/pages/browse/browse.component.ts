@@ -9,13 +9,14 @@ import { MoviesService } from '../../shared/services/movies.service';
 import { log } from 'console';
 import { MovieCaruoselComponent } from '../../components/movie-caruosel/movie-caruosel.component';
 import { IVideoContent } from '../../shared/models/ivideo-content';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
     selector: 'app-browse',
     standalone: true,
     templateUrl: './browse.component.html',
     styleUrls: ['./browse.component.scss'],
-    imports: [CommonModule, HeaderComponent, BannerComponent,MovieCaruoselComponent]
+    imports: [CommonModule, HeaderComponent, BannerComponent,MovieCaruoselComponent,FooterComponent]
 })
 export class BrowseComponent implements OnInit {
 

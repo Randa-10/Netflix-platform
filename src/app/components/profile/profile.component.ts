@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { AuthServiceService } from '../../shared/services/auth-service.service';
 import { json } from 'stream/consumers';
 import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [HeaderComponent,FooterComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })

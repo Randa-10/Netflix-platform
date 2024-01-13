@@ -9,11 +9,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthServiceService } from '../../shared/services/auth-service.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { DescriptionPipe } from '../../shared/pipe/description.pipe';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule,NgIf,MatIconModule,MatToolbarModule],
+  imports: [CommonModule,NgIf,MatIconModule,MatToolbarModule,RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
   ,
