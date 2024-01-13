@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { AuthServiceService } from '../../shared/services/auth-service.service';
 import { json } from 'stream/consumers';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
@@ -14,6 +15,7 @@ auth=inject(AuthServiceService)
 name=JSON.parse(sessionStorage.getItem('loggedInUser')!).name
 profileImage=JSON.parse(sessionStorage.getItem('loggedInUser')!).picture
 email=JSON.parse(sessionStorage.getItem('loggedInUser')!).email
+userProfileImg!: string;
 
 signOut(){
   sessionStorage.removeItem("loggedInUser");

@@ -4,7 +4,9 @@ z-index: 10;
 position: sticky;
 
 }
-
+nav{
+  flex-wrap: nowrap;
+}
 ul li.items{
   list-style: none;
   color: rgb(252, 252, 252);
@@ -80,6 +82,11 @@ li{
   display: block;
   transition: 0.2s;
 }
+.sidebar .btn {
+width: 50%;
+margin-left: auto;
+margin-right: auto;
+}
 
 .sidebar a:hover {
   background-color: #555;
@@ -98,3 +105,19 @@ li{
   width: 200px;
 }
 
+.img{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+.slow-motion {
+  text-decoration: none;
+  color: #000;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  display: inline-block;
+}
+
+.slow-motion span {
+  display: inline-block;
+}
