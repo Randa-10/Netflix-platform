@@ -63,3 +63,8 @@ h4{
 .fa-backward{
   cursor: pointer;
 }
+.loading-container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}

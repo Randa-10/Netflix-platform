@@ -8,15 +8,17 @@ import { HeaderComponent } from '../header/header.component';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NgIf } from '@angular/common';
 import { VideoPipe } from '../../shared/pipe/video.pipe';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
     selector: 'app-movie-details',
     standalone: true,
     templateUrl: './movie-details.component.html',
     styleUrls: ['./movie-details.component.scss'],
-    imports: [DescriptionPipe, ImgPipe,HeaderComponent,NgIf,RouterModule,VideoPipe]
+    imports: [DescriptionPipe, ImgPipe,HeaderComponent,NgIf,RouterModule,VideoPipe,MatProgressSpinnerModule]
 })
 export class MovieDetailsComponent implements OnInit,OnChanges {
+  isLoading: boolean = false;
   userProfileImg!: string;
   movieService: MoviesService;
   movieService2: ActivatedRoute;
@@ -29,10 +31,13 @@ export class MovieDetailsComponent implements OnInit,OnChanges {
     this.movieService2 = activatedRoute;
   }
   ngOnInit(): void {
+    this.isLoading=true
     this.movieService2.paramMap.subscribe((paramMap) => {
       this.currentdetai = paramMap.get('id') ? Number(paramMap.get('id')) : 0;
       this.movieService.getBannerDetail(this.currentdetai).subscribe(
         (foundedProduct: IVideoContent) => {
+          this.isLoading=false
+
           this.movei = foundedProduct;
         },
         (error) => {

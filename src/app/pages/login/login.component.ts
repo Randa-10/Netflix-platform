@@ -1,3 +1,4 @@
+import { style } from '@angular/animations';
 
 
 declare const google: any;
@@ -12,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -41,6 +43,21 @@ export class LoginComponent implements OnInit{
 
     return this.password.hasError('password') ? 'Not a valid password' : '';
   }
+
+
+  signIn() {
+    // Check if the form is not valid
+    if (this.email.invalid || this.password.invalid) {
+      // Display SweetAlert for invalid form
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid email',
+        text: 'Please enter valid email and password.',
+      });
+      return;
+    }
+  }
+
 //googel sign in
   ngOnInit(): void {
     google.accounts.id.initialize({
@@ -50,12 +67,18 @@ export class LoginComponent implements OnInit{
       // }
     });
     google.accounts.id.renderButton(document.getElementById("google-btn"), {
-      theme: 'filled_blue',
+      theme: 'filled_gray',
       size: 'large',
       shape: 'rectangle',
-      width: 350
-    })
+      width: 200 // Set the width to 100% to make it full-width
+    });
 
+    // Add custom styles to override the default Google Sign-In button styles
+    // const googleBtn = document.getElementById("google-btn");
+    // if (googleBtn) {
+    //   googleBtn.style.backgroundColor = 'gray'; // Set the background color to gray
+    //   // Add any additional styles as needed
+    // }
   }
 
   private decodeToken(token: string){
@@ -69,7 +92,7 @@ export class LoginComponent implements OnInit{
       localStorage.setItem("loggedInUser", JSON.stringify(payLoad));
 
 
-      this.router.navigate(['profile'])
+      this.router.navigate(['home'])
     }
 
 }

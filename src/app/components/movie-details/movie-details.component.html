@@ -1,6 +1,11 @@
+<div class="loading-container" *ngIf="isLoading">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+<div *ngIf="!isLoading">
+
 <app-header [userImage]="userProfileImg"/>
 <div class="container mt-5">
-  <i class="fa-solid fa-backward" [routerLink]="['/']" (click)="toggleTrailer()">
+  <i class="fa-solid fa-backward" [routerLink]="['/home']" (click)="toggleTrailer()">
     <p *ngIf="showTrailer">back to home</p>
   </i>
   <h2 class="mb-4">Movie Details</h2>
@@ -26,4 +31,5 @@
 
   </div>
 
+</div>
 </div>

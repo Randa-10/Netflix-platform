@@ -10,16 +10,17 @@ import { log } from 'console';
 import { MovieCaruoselComponent } from '../../components/movie-caruosel/movie-caruosel.component';
 import { IVideoContent } from '../../shared/models/ivideo-content';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
     selector: 'app-browse',
     standalone: true,
     templateUrl: './browse.component.html',
     styleUrls: ['./browse.component.scss'],
-    imports: [CommonModule, HeaderComponent, BannerComponent,MovieCaruoselComponent,FooterComponent]
+    imports: [CommonModule, HeaderComponent, BannerComponent,MovieCaruoselComponent,FooterComponent,MatProgressSpinnerModule]
 })
 export class BrowseComponent implements OnInit {
-
+  isLoading: boolean = false;
   auth = inject(AuthServiceService);
   movieService = inject(MoviesService);
   name!: string;
@@ -48,6 +49,7 @@ export class BrowseComponent implements OnInit {
   ];
 // popularMovies:IVideoContent[]=[]
   ngOnInit(): void {
+    this.isLoading = true;
     forkJoin(this.sources).pipe(
       map(([movies, tvShows, ratedMovies, nowPlaying, upcoming, popular, topRated])=>{
         this.bannerDetail$ = this.movieService.getBannerDetail(movies.results[0].id);
@@ -62,6 +64,7 @@ export class BrowseComponent implements OnInit {
       this.upcomingMovies = res.upcoming.results as IVideoContent[];
       this.popularMovies = res.popular.results as IVideoContent[];
       this.topRatedMovies = res.topRated.results as IVideoContent[];
+      this.isLoading=false
       this.getMovieKey();
       console.log(this.getMovieKey());
 
@@ -75,28 +78,6 @@ export class BrowseComponent implements OnInit {
         console.log(res);
       })
     }
-// this.movieService.getMovies().subscribe(res=>
-//   {console.log(res)
-// this.popularMovies=res.results
-//   }
-//   )
-
-    // if (isPlatformBrowser(this.platformId)) {
-    //   const loggedInUserString = sessionStorage.getItem("loggedInUser");
-
-    //   if (loggedInUserString) {
-    //     const loggedInUser = JSON.parse(loggedInUserString);
-
-    //     if (loggedInUser) {
-    //       // Access user properties only if loggedInUser is not null
-    //       this.name = loggedInUser.name || '';
-    //       this.userProfileImg = loggedInUser.picture || '';
-    //       this.email = loggedInUser.email || '';
-
-    //     }
-    //   }
-  //   }
-  // }
 
   signOut(){
     sessionStorage.removeItem("loggedInUser");

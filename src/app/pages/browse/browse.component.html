@@ -1,19 +1,20 @@
-<app-header [userImage]="userProfileImg"/>
-<!-- component -->
-<app-banner [bannerTitle]="(bannerDetail$ | async)?.original_title"
-[bannerOverview]="(bannerDetail$ | async)?.overview" [key]="(bannerVideo$ | async)?.results[0].key" />
-<!-- <app-movie-caruosel [videoContents]="popularMovies" [title]="'popular Movies'"/> -->
-<!-- <app-banner [bannerTitle]="(bannerDetail$ | async)?.original_title" [bannerOverview]="(bannerDetail$ | async)?.overview"
-  [key]="(bannerVideo$ | async)?.results[0].key" /> -->
-<app-movie-caruosel [title]="'Popular on Netflix'" [videoContents]="movies" />
+<div class="loading-container" *ngIf="isLoading">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
 
-<app-movie-caruosel [title]="'Trending TV shows'" [videoContents]="tvShows" />
 
-<app-movie-caruosel [title]="'Now Playing Movies'" [videoContents]="nowPlayingMovies" />
+<div *ngIf="!isLoading">
+  <app-header [userImage]="userProfileImg"/>
+  <app-banner [bannerTitle]="(bannerDetail$ | async)?.original_title"
+              [bannerOverview]="(bannerDetail$ | async)?.overview"
+              [key]="(bannerVideo$ | async)?.results[0].key" />
 
-<app-movie-caruosel [title]="'Popular Movies'" [videoContents]="popularMovies" />
+  <app-movie-caruosel [title]="'Popular on Netflix'" [videoContents]="movies" />
+  <app-movie-caruosel [title]="'Trending TV shows'" [videoContents]="tvShows" />
+  <app-movie-caruosel [title]="'Now Playing Movies'" [videoContents]="nowPlayingMovies" />
+  <app-movie-caruosel [title]="'Popular Movies'" [videoContents]="popularMovies" />
+  <app-movie-caruosel [title]="'Top Rated Movies'" [videoContents]="topRatedMovies" />
+  <app-movie-caruosel [title]="'Upcoming Movies'" [videoContents]="upcomingMovies" />
 
-<app-movie-caruosel [title]="'Top Rated Movies'" [videoContents]="topRatedMovies" />
-
-<app-movie-caruosel [title]="'Upcoming Movies'" [videoContents]="upcomingMovies" />
-<app-footer/>
+  <app-footer/>
+</div>

@@ -4,37 +4,22 @@ background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/ab180a27-b661-
 background-repeat: no-repeat;
 background-size: cover;
 width: 100%;
-height: 100vh;
-// background-color: rgba(0,0,0,.2);
+
 }
 .form{
 padding: 3rem;
 margin-top: 9rem;
 margin-bottom: 9rem;
 border-radius: 0.5rem;
-width: 30%;
-// height: 100%;
 color: #ffffff;
 background-color: #000000;
-opacity: 0.9;
 margin-left: auto;
 margin-right: auto;
 align-items: center;
-
+--bg-opacity: 0.9;
+background-color: rgba(0, 0, 0, var(--bg-opacity)); 
 }
-// .formContent{
-// //  padding: 3rem;
-// //  margin-top: 9rem;
-// //  margin-bottom: 9rem;
-// border-radius: 0.5rem;
-// width: 25%;
-// // height: 100%;
-// color: #ffffff;
-// background-color: #000000;
-// opacity: 0.9;
-// margin-left: auto;
-// margin-right: auto;
-// }
+
 .title{
   padding-top: 1rem;
 padding-bottom: 1rem;
@@ -43,11 +28,14 @@ line-height: 2.25rem;
 font-weight: 700;
 
 }
+.bbb{
+  background-color: #e71616;
+  color: #fcf8f8;
+  font-size: large;
+}
 .example-container mat-form-field + mat-form-field {
-  // margin-left: 8px;
-  // width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+
 }
 
 mat-error ,mat-label{
@@ -56,6 +44,14 @@ mat-error ,mat-label{
 input{
   border-bottom: #946811 1px solid;
 
+}
+a,.col-auto{
+  text-decoration: none;
+  color: #646262;
+  cursor: pointer;
+}
+a:hover{
+  text-decoration: underline;
 }
 @media (min-width: 768px) {
   // .form{
