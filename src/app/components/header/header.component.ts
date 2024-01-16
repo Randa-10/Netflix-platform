@@ -31,9 +31,11 @@ export class HeaderComponent implements OnInit {
   @Input({required:true}) userImage :string =''
   auth=inject(AuthServiceService)
   navList = ["Home", "My List", "About", "Contact"];
-  name = JSON.parse(sessionStorage.getItem('loggedInUser')!).name
-  profileImage=JSON.parse(sessionStorage.getItem('loggedInUser')!).picture
-    isSmallScreen: boolean = false;
+  name = JSON.parse(localStorage.getItem('loggedInUser')!).name
+  profileImage=JSON.parse(localStorage.getItem('loggedInUser')!).picture
+  // profileImage="https://lh3.googleusercontent.com/a/ACg8ocLUQ4LXK4GNxw2C_LWyaRHoeikGzq-qt_yM4NOa0zMRrg=s96-c"
+  // https://lh3.googleusercontent.com/a/ACg8ocLUQ4LXK4GNxw2C_LWyaRHoeikGzq-qt_yM4NOa0zMRrg=s96-c
+   isSmallScreen: boolean = false;
 nameLetters: any[] = [];
 
   constructor(private breakpointObserver: BreakpointObserver) {

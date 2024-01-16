@@ -17,10 +17,18 @@ export class BannerComponent implements OnChanges {
 
 @Input({required:true}) bannerTitle='';
 @Input() bannerOverview='';
-@Input() key='r_pUE7OcN8w';
+// @Input() key='r_pUE7OcN8w';
 @Input() videoContents: IVideoContent[] = [];
+@Input() key = 'r_pUE7OcN8w';
+private sanitizer = inject(DomSanitizer)
+videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.key}?autoplay=1&mute=1&loop=1&controls=0`)
 
-private sanitizer=inject(DomSanitizer)
+ngOnChanges(changes: SimpleChanges): void {
+  if(changes['key']){
+    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.key}?autoplay=1&mute=1&loop=1&controls=0`);
+  }
+}
+// private sanitizer=inject(DomSanitizer)
 private breakpointObserver=inject (BreakpointObserver)
 @Input() isSmallScreen: boolean = false;
 constructor(){
@@ -30,10 +38,10 @@ constructor(){
     this.isSmallScreen = result.matches;
   });
 }
-videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.key}?autoplay=1&mute=1&loop=1&controls=0`);
-ngOnChanges(changes: SimpleChanges): void {
-  if(changes ['Key']){
-    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.key}?autoplay=1&mute=1&loop=1&controls=0`);
-  }
-}
+// videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.key}?autoplay=1&mute=1&loop=1&controls=0`);
+// ngOnChanges(changes: SimpleChanges): void {
+//   if(changes ['Key']){
+//     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.key}?autoplay=1&mute=1&loop=1&controls=0`);
+//   }
+// }
 }

@@ -6,27 +6,22 @@
   <h2 class="mb-4">Movie Details</h2>
   <div class="row ">
       <div class="col-md-3">
-          <!-- Poster Image -->
           <img [src]=" movei?.poster_path |img" alt="" class="poster col-12  image-fluid"/>
+
         </div>
       <div class="col-md-9  ">
-          <!-- <h4>Basic Information</h4> -->
           <ul class="list-group p-5 ">
-              <li class=""><h2><strong>Title:</strong>{{movei?.original_title}}</h2> </li>
+            <!-- <iframe [src]="movei| video"  height="315" frameborder="0" allowfullscreen></iframe> -->
+            <li class=""><h2><strong>Title:</strong>{{movei?.original_title}}</h2> </li>
               <li class=""><strong>overview:</strong>{{ movei?.overview }}</li>
               <li class=""><strong>Date:</strong> {{movei?.release_date }}</li>
               <li class=""><strong>original language:</strong> {{ movei?.original_language }}</li>
               <li class=""><strong>vote_count:</strong> {{ movei?.vote_count }}</li>
-              <li class=""><strong>vote_count:</strong> {{ movei?.vote_average }}</li>
-              <!-- <app-star-rating [rating]="movei?.vote_average"></app-star-rating> -->
-
-      <!-- </div> -->
-  <!-- </div> -->
-
-  <!-- <div class="row mt-4"> -->
-    <!-- <div class="col-md-12"> -->
-      <h4 (click)="toggleTrailer()">Watch Trailer <span class="watch-icon "><i class="fas fa-play"></i></span></h4>
-      <iframe *ngIf="showTrailer"  height="315" [src]="videoUrl" frameborder="0" allowfullscreen></iframe>
+              <li class=""><strong>vote_average:</strong> {{ movei?.vote_average }}</li>
+      <h4 (click)="toggleTrailer()">Watch Trailer <span class="watch-icon"><i class="fas fa-play"></i></span></h4>
+      <div *ngIf="showTrailer">
+        <iframe [src]="movei| video"  height="315" frameborder="0" allowfullscreen></iframe>
+      </div>
      </ul></div>
 
   </div>

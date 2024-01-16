@@ -1,15 +1,18 @@
 .loginPage{
   position: absolute;
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/ab180a27-b661-44d7-a6d9-940cb32f2f4a/345ae8b6-2b8b-41cf-b055-244b5980c513/EG-ar-20231009-popsignuptwoweeks-perspective_alpha_website_large.jpg") ;
+background-repeat: no-repeat;
+background-size: cover;
+width: 100%;
+height: 100vh;
+
 }
 .form{
-position: absolute;
-right: 0;
-left: 0;
 padding: 3rem;
 margin-top: 9rem;
 margin-bottom: 9rem;
 border-radius: 0.5rem;
-width: 100%;
+width: 50%;
 color: #ffffff;
 background-color: #000000;
 opacity: 0.8;
@@ -26,7 +29,7 @@ font-weight: 700;
 
 }
 @media (min-width: 768px) {
-  .form{
-     width: 25%;
-  }
+  // .form{
+  //    width: 25%;
+  // }
  }

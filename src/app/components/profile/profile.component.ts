@@ -13,13 +13,13 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class ProfileComponent {
 auth=inject(AuthServiceService)
-name=JSON.parse(sessionStorage.getItem('loggedInUser')!).name
-profileImage=JSON.parse(sessionStorage.getItem('loggedInUser')!).picture
-email=JSON.parse(sessionStorage.getItem('loggedInUser')!).email
+name=JSON.parse(localStorage.getItem('loggedInUser')!).name
+profileImage=JSON.parse(localStorage.getItem('loggedInUser')!).picture
+email=JSON.parse(localStorage.getItem('loggedInUser')!).email
 userProfileImg!: string;
 
 signOut(){
-  sessionStorage.removeItem("loggedInUser");
+  localStorage.removeItem("loggedInUser");
   this.auth.signOut();
 }
 }
