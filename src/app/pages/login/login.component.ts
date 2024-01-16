@@ -9,18 +9,39 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { log } from 'node:console';
 import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit{
   private router = inject(Router);
 
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required]);
+
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'Please enter a valid email.';
+    }
+
+    return this.email.hasError('email') ? 'Not a valid email' : '';
+  }
+  getErrorMessagepass() {
+    if (this.password.hasError('required')) {
+      return 'Your password must contain between 4 and 60 characters.';
+    }
+
+    return this.password.hasError('password') ? 'Not a valid password' : '';
+  }
+//googel sign in
   ngOnInit(): void {
     google.accounts.id.initialize({
       client_id: '180351739638-e1c75ksr1i8id82o48hk9p3j7kja6169.apps.googleusercontent.com',

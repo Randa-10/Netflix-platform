@@ -6,9 +6,7 @@ import { Router } from '@angular/router';
 })
 export class AuthServiceService {
 
-
 router = inject(Router);
-constructor() { }
 
 signOut(){
   google.accounts.id.disableAutoSelect();

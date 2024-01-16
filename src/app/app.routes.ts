@@ -6,7 +6,5 @@ export const routes: Routes = [
    {path:'',loadComponent:() => import('./pages/login/login.component').then(a=>a.LoginComponent)},
    { path: 'home', loadComponent: () => import('./pages/browse/browse.component').then(a => a.BrowseComponent) },
    { path: 'profile', loadComponent: () => import('./components/profile/profile.component').then(a => a.ProfileComponent) },
-
    {path:'details/:id',loadComponent:() => import('./components/movie-details/movie-details.component').then(a=>a.MovieDetailsComponent)},
-
 ];

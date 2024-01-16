@@ -2,9 +2,34 @@
   <!-- <img
   src="https://assets.nflxext.com/ffe/siteui/vlv3/594f8025-139a-4a35-b58d-4ecf8fdc507c/b1c77565-6c7c-46ce-92f5-3a4e1e6f628b/EG-en-20240108-popsignuptwoweeks-perspective_alpha_website_large.jpg" alt=""> -->
 <div class="form">
-  <h1 class="title">Netflix Sign In</h1>
-  <div id="google-btn">
+  <div class=" row">
+  <h1 class="title">Sign In</h1>
+  <div class="example-container ">
+    <mat-form-field class="col-12 mt-2 mb-2">
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com" [formControl]="email" required>
+      @if (email.invalid) {
+        <mat-error>{{getErrorMessage()}}</mat-error>
+      }
+    </mat-form-field>
+    </div>
+    <div class="example-container">
+    <mat-form-field class="col-12 mt-2 mb-2">
+      <mat-label>Enter your password</mat-label>
+      <input matInput placeholder="pat@example.com" [formControl]="password" required minlength="4" maxlength="60">
+      @if (password.invalid) {
+        <mat-error>{{getErrorMessagepass()}}</mat-error>
+      }
+    </mat-form-field>
+  </div>
+  <div class="col-12 mt-2 mb-2">
+  <input type="checkbox" class=" col-8"/><span class="mx-1">Remember me</span>
+  <a href="" class="col-2">Need help</a>
+  </div>
+
+  <div id="google-btn" class="col-12">
 
   </div>
+</div>
 </div>
 </div>
