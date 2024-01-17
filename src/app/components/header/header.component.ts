@@ -73,7 +73,7 @@ private splitName(): any[] {
   }
 
   signOut(){
-    sessionStorage.removeItem("loggedInUser");
+    localStorage.removeItem("loggedInUser");
     this.auth.signOut();
   }
 }

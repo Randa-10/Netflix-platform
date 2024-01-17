@@ -1,0 +1,78 @@
+<div class="loginPage container-fluid">
+  <div class="row">
+    <div class="form col-12">
+      <div class="row justify-content-between">
+        <div class="col-6 ">
+          <img src="/assets\pngwing.com.png" alt=""width="100">
+        </div>
+        <div class="col-4 bg-dark">
+          <!-- <div class="row">
+          <mat-form-field class="col-lg-4 col-sm-2 ">
+            <mat-label>language</mat-label>
+            <mat-select>
+              <mat-option value="option">English</mat-option>
+              <mat-option value="option">Arabic</mat-option>
+
+            </mat-select>
+          </mat-form-field>
+            <div class="col-lg-4 col-sm-2">
+              <button mat-raised-button color="red">Accent</button>
+            </div>
+        </div> -->
+        <div class="row" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between">
+          <mat-form-field fxFlex.gt-sm="45%" fxFlex.gt-xs="100%" class="col-lg-4 col-sm-2">
+            <mat-label>Language</mat-label>
+            <mat-select>
+              <mat-option value="english">English</mat-option>
+              <mat-option value="arabic">Arabic</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div fxFlex.gt-sm="45%" fxFlex.gt-xs="100%" class="col-lg-4 col-sm-2">
+            <button mat-raised-button color="red">Accent</button>
+          </div>
+        </div>
+
+      </div>
+
+        <h1 class="title">Unlimited movies, TV shows, and more </h1>
+        <P>Watch anywhere. Cancel anytime.</P>
+        <p>Ready to watch? Enter your email to create or restart your membership.</p>
+        <div class="example-container col-12 mt-2 mb-2">
+          <mat-form-field class="col-12 mt-2 mb-2">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="example-container col-12 mt-2 mb-2">
+          <mat-form-field class="col-12 mt-2 mb-2">
+            <mat-label>Enter your password</mat-label>
+            <input matInput placeholder="Password" [formControl]="password" required minlength="4" maxlength="60">
+            <mat-error *ngIf="password.invalid">{{getErrorMessagepass()}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="example-container col-12 mt-2 mb-2">
+          <button class="col-12 mt-2 mb-2 btn bbb pl-2 px-2"(click)="signIn()"  > sign in
+          </button>
+        </div>
+        <div class="row mt-2 mb-2 justify-content-between">
+          <div class="col-auto">
+            <input type="checkbox" />
+            <span class="mx-1">Remember me</span>
+          </div>
+          <div class="col-auto">
+            <a href="">Need help?</a>
+          </div>
+        </div>
+       <span class="col-auto">New to Netflix? <a href="register" class="text-light"> Sign up now.</a> or
+         <div id="google-btn-container" class="mt-2">
+        <div id="google-btn"></div>
+      </div>
+      </span>
+      </div>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+<!-- </div> -->

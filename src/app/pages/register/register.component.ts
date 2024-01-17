@@ -1,11 +1,8 @@
-import { style } from '@angular/animations';
-
-
 declare const google: any;
 
 import { Component, OnInit, inject } from '@angular/core';
 import { AfterViewInit } from '@angular/core';
-
+import { style } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { log } from 'node:console';
@@ -13,18 +10,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
 import Swal from 'sweetalert2';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-register',
   standalone: true,
-  imports: [CommonModule,MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule],
-  templateUrl: './login.component.html',
-  // template: '<button (click)="showErrorModal()">Show Error Modal</button>',
-  styleUrls: ['./login.component.scss']
+  imports: [ FlexLayoutModule,CommonModule,MatFormFieldModule, MatInputModule,MatButtonModule, MatDividerModule, FormsModule, ReactiveFormsModule, MatSelectModule],
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.scss'
 })
-export class LoginComponent implements OnInit{
+export class RegisterComponent implements OnInit{
+
   private router = inject(Router);
 
   email = new FormControl('', [Validators.required, Validators.email]);
