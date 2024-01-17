@@ -4,7 +4,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { AfterViewInit } from '@angular/core';
 import { style } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { log } from 'node:console';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
@@ -20,7 +20,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ FlexLayoutModule,CommonModule,MatFormFieldModule, MatInputModule,MatButtonModule, MatDividerModule, FormsModule, ReactiveFormsModule, MatSelectModule],
+  imports: [RouterModule, FlexLayoutModule,CommonModule,MatFormFieldModule, MatInputModule,MatButtonModule, MatDividerModule, FormsModule, ReactiveFormsModule, MatSelectModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -68,11 +68,10 @@ export class RegisterComponent implements OnInit{
         icon: 'success',
         title: 'Successful Login',
         text: 'You have successfully logged in!',
-        confirmButtonColor: '#000', // Set the color of the confirm button
+        confirmButtonColor: '#000', 
       })
       .then((result) => {
         if (result.isConfirmed) {
-          // this.router.navigate(['home']);
         }
       });
     }
@@ -86,10 +85,10 @@ export class RegisterComponent implements OnInit{
         console.log(resp)}
     });
     google.accounts.id.renderButton(document.getElementById("google-btn"), {
-      theme: 'filled_gray',
-      size: 'large',
-      shape: 'rectangle',
-      width: 200
+      // theme: 'filled_gray',
+      // size: 'large',
+      // shape: 'rectangle',
+      // width: 200
     });
 
   }

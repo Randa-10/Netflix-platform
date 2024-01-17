@@ -13,16 +13,12 @@
 
 .form{
 padding: 3rem;
-// margin-top: 5rem;
-// margin-bottom: 5rem;
-// border-radius: 0.5rem
 height:  100vh;
 color: #ffffff;
 background-color: #000000;
 margin-left: auto;
 margin-right: auto;
-// align-items: center;
---bg-opacity: 0.9;
+--bg-opacity: 0.8;
 background-color: rgba(0, 0, 0, var(--bg-opacity));
 }
 
@@ -34,19 +30,15 @@ line-height: 2.25rem;
 font-weight: 700;
 
 }
-.bbb{
+ .singin {
+  color: white;
   background-color: #e50914;
-  color: #fcf8f8;
-  font-size: large;
-  // padding: 10px 20px;
 }
-.example-container mat-form-field + mat-form-field {
-  width: 100%;
-
-}
-
-mat-error ,mat-label{
-  color: #946811;
+.singin2 {
+  color: white;
+  background-color: #e50914;
+  padding: 5px 20px;
+  align-items: center;
 }
 input{
   border-bottom: #946811 1px solid;
@@ -60,11 +52,4 @@ a,.col-auto{
 a:hover{
   text-decoration: underline;
 }
-
-@media (min-width: 768px) {
-  // .form{
-  //    width: 25%;
-  // }
- }
-
 
