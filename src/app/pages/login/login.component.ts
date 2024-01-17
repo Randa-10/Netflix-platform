@@ -85,10 +85,7 @@ export class LoginComponent implements OnInit{
         console.log(resp)}
     });
     google.accounts.id.renderButton(document.getElementById("google-btn"), {
-      theme: 'filled_gray',
-      size: 'large',
-      shape: 'rectangle',
-      width: 200
+   
     });
 
   }

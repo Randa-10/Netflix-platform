@@ -19,6 +19,8 @@ ul li.items{
 ul li.items:hover{
   color: #9CA3AF;
 transition: 1s;
+font-size: large;
+
 }
 .welcomeUser{
   display: flex;
@@ -59,7 +61,6 @@ nav {
 }
 li{
   justify-content:start;
-  // margin-left: 50px;
 }
 .icon {
   color: #f3f0f0;

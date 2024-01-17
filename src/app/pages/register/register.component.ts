@@ -29,7 +29,6 @@ export class RegisterComponent implements OnInit{
   private router = inject(Router);
 
   email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required]);
 
   getErrorMessage() {
     if (this.email.hasError('required')) {
@@ -38,17 +37,9 @@ export class RegisterComponent implements OnInit{
 
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
-  getErrorMessagepass() {
-    if (this.password.hasError('required')) {
-      return 'Your password must contain between 4 and 60 characters.';
-    }
-
-    return this.password.hasError('password') ? 'Not a valid password' : '';
-  }
-
 
   signIn() {
-    if (this.email.invalid || this.password.invalid) {
+    if (this.email.invalid) {
       Swal.fire({
         icon: 'error',
         title: 'Invalid email',
@@ -72,6 +63,7 @@ export class RegisterComponent implements OnInit{
       })
       .then((result) => {
         if (result.isConfirmed) {
+          // this.router.navigate(['/home'])
         }
       });
     }
@@ -85,10 +77,7 @@ export class RegisterComponent implements OnInit{
         console.log(resp)}
     });
     google.accounts.id.renderButton(document.getElementById("google-btn"), {
-      // theme: 'filled_gray',
-      // size: 'large',
-      // shape: 'rectangle',
-      // width: 200
+     
     });
 
   }

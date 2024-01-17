@@ -19,7 +19,6 @@
               <mat-select>        
                 <mat-option value="option">En</mat-option>
                 <mat-option value="option">Ar</mat-option>
-  
               </mat-select>
           </button>
               <button class="btn singin mx-1" type="button" [routerLink]="['/']">Sign in</button>
@@ -42,18 +41,14 @@
             
         </div>
         <div class="example-container col-12  align-items-center mb-2">
-        <button class="btn singin2 mx-1 " type="button" [routerLink]="['/']">Get Started 
+        <button class="btn singin2 mx-1 " type="button"  (click)="signIn()" >Get Started 
                  <i class="fas fa-arrow-right ml-2"></i> 
             </button>
           </div>
        <span class="col-auto"> or Sign in with google <i class="fas fa-arrow-right ml-2"></i> <button class="btn mx-1 "id="google-btn"  type="button" >
-        <i class="fas fa-arrow-right ml-2"></i> 
    </button>
-       <!-- <div id="google-btn" class="text-center ">
-          
-        </div>  -->
+
       </span>
-        
       </div>
       </div>
       </div>
