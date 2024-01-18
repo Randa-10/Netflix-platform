@@ -7,6 +7,7 @@ import { DescriptionPipe } from '../../shared/pipe/description.pipe';
 import { ImgPipe } from '../../shared/pipe/img.pipe';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { RouterModule } from '@angular/router';
+import { FavService } from '../../shared/services/fav.service';
 
 @Component({
   selector: 'app-movie-caruosel',
@@ -30,7 +31,7 @@ export class MovieCaruoselComponent implements OnInit, AfterViewInit {
   selectedContent: string | null = null;
   private breakpointObserver=inject (BreakpointObserver)
   isSmallScreen: boolean = false;
-
+private favService=inject(FavService)
   constructor(){
   this.breakpointObserver
   .observe([Breakpoints.XSmall, Breakpoints.Small])
@@ -99,5 +100,29 @@ export class MovieCaruoselComponent implements OnInit, AfterViewInit {
   clearHoverMovie() {
     this.selectedContent = null;
   }
+
+
+  // toggleFavorite(item: string) {
+  //   if (this.isFavorite(item)) {
+  //     this.favService.removeFromFavorites(item);
+  //   } else {
+  //     this.favService.addToFavorites(item);
+  //   }
+  // }
+
+  isFavorite(item: string): boolean {
+    const currentFavorites = this.favService.favoritesSubject.value;
+    return currentFavorites.includes(item);
+  }
+  toggleFavorite(item: string) {
+    if (this.isFavorite(item)) {
+      this.favService.removeFromFavorites(item);
+    } else {
+      this.favService.addToFavorites(item);
+    }
+
+    // Set the selected item in the service
+    this.favService.setSelectedItem(item);
 }
 
+}

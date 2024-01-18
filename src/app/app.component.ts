@@ -7,6 +7,7 @@ import { HeaderComponent } from "./components/header/header.component";
 import { BrowseComponent } from './pages/browse/browse.component';
 import { LoginComponent } from '../app/pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { FavComponent } from './components/fav/fav.component';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { RegisterComponent } from './pages/register/register.component';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [CommonModule, RouterOutlet, NavbarComponent, FooterComponent, HeaderComponent,BrowseComponent,LoginComponent,RegisterComponent]
+    imports: [CommonModule, RouterOutlet, NavbarComponent, FooterComponent, HeaderComponent,BrowseComponent,LoginComponent,RegisterComponent,FavComponent]
 })
 export class AppComponent {
   title = 'Netflix';

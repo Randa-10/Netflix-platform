@@ -138,3 +138,7 @@ display: flex;
     font-size: 1rem;
     }
 }
+/* Add this to your component's SCSS file */
+.favorite {
+  color: gold; /* or any color you prefer for favorite items */
+}

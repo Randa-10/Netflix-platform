@@ -1,3 +1,4 @@
+import { FavComponent } from './components/fav/fav.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
@@ -9,5 +10,6 @@ export const routes: Routes = [
    { path: 'profile', loadComponent: () => import('./components/profile/profile.component').then(a => a.ProfileComponent) },
    {path:'details/:id',loadComponent:() => import('./components/movie-details/movie-details.component').then(a=>a.MovieDetailsComponent)},
    {path:'register',loadComponent:() => import('./pages/register/register.component').then(a=>a.RegisterComponent)},
+   {path:'fav',loadComponent:() => import('./components/fav/fav.component').then(a=>a.FavComponent)},
 
 ];

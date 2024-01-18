@@ -1,0 +1,8 @@
+<!-- fav.component.html -->
+<div>
+  <h2>Your Favorites</h2>
+  <p *ngIf="selectedItem">Selected Item: {{ selectedItem }}</p>
+  <ul>
+    <li *ngFor="let favorite of favorites">{{ favorite }}</li>
+  </ul>
+</div>
