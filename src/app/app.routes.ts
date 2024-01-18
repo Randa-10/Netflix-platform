@@ -11,5 +11,8 @@ export const routes: Routes = [
    {path:'details/:id',loadComponent:() => import('./components/movie-details/movie-details.component').then(a=>a.MovieDetailsComponent)},
    {path:'register',loadComponent:() => import('./pages/register/register.component').then(a=>a.RegisterComponent)},
    {path:'fav',loadComponent:() => import('./components/fav/fav.component').then(a=>a.FavComponent)},
-
+   { path: 'home', component: FavComponent },
+   { path: 'my-list', component: FavComponent },
+   { path: 'about', component: FavComponent },
+   { path: 'contact', component: FavComponent },
 ];

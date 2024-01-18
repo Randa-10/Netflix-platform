@@ -1,3 +1,4 @@
+import { routes } from './../../app.routes';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { NgFor, NgIf } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild, inject } from '@angular/core';
@@ -31,7 +32,7 @@ export class MovieCaruoselComponent implements OnInit, AfterViewInit {
   selectedContent: string | null = null;
   private breakpointObserver=inject (BreakpointObserver)
   isSmallScreen: boolean = false;
-private favService=inject(FavService)
+ private favoriteService=inject(FavService)
   constructor(){
   this.breakpointObserver
   .observe([Breakpoints.XSmall, Breakpoints.Small])
@@ -102,27 +103,21 @@ private favService=inject(FavService)
   }
 
 
-  // toggleFavorite(item: string) {
-  //   if (this.isFavorite(item)) {
-  //     this.favService.removeFromFavorites(item);
-  //   } else {
-  //     this.favService.addToFavorites(item);
-  //   }
-  // }
+// movie-carousel.component.ts
 
-  isFavorite(item: string): boolean {
-    const currentFavorites = this.favService.favoritesSubject.value;
-    return currentFavorites.includes(item);
+toggleFavorite(movie: IVideoContent): void {
+  console.log('Toggle favorite:', movie);
+  if (this.favoriteService.isFavorite(movie)) {
+    this.favoriteService.removeFromFavorites(movie);
+  } else {
+    this.favoriteService.addToFavorites(movie);
   }
-  toggleFavorite(item: string) {
-    if (this.isFavorite(item)) {
-      this.favService.removeFromFavorites(item);
-    } else {
-      this.favService.addToFavorites(item);
-    }
-
-    // Set the selected item in the service
-    this.favService.setSelectedItem(item);
 }
+
+  isFavorite(movie: IVideoContent): boolean {
+    return this.favoriteService.isFavorite(movie);
+  }
+
+
 
 }

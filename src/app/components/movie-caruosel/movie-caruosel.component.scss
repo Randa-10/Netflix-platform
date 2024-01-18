@@ -122,7 +122,6 @@ display: flex;
 
 @media screen and (max-width: 400px) {
   .swiper-slide img {
-    // width: 100px;
     border-radius: 2px;
   }
   .desc {
@@ -138,7 +137,6 @@ display: flex;
     font-size: 1rem;
     }
 }
-/* Add this to your component's SCSS file */
 .favorite {
-  color: gold; /* or any color you prefer for favorite items */
+  color: gold;
 }

@@ -1,28 +1,30 @@
 // fav.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { IVideoContent } from '../models/ivideo-content';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavService {
- favoritesSubject = new BehaviorSubject<string[]>([]);
-  favorites$ = this.favoritesSubject.asObservable();
-  private selectedItemSubject = new BehaviorSubject<string | null>(null);
-  selectedItem$ = this.selectedItemSubject.asObservable();
+  private favorites: IVideoContent[] = [];
 
-  addToFavorites(item: string) {
-    const currentFavorites = this.favoritesSubject.value;
-    this.favoritesSubject.next([...currentFavorites, item]);
+  getFavorites(): IVideoContent[] {
+    console.log('Favorites:', this.favorites);
+    return this.favorites;
   }
 
-  removeFromFavorites(item: string) {
-    const currentFavorites = this.favoritesSubject.value;
-    const updatedFavorites = currentFavorites.filter(fav => fav !== item);
-    this.favoritesSubject.next(updatedFavorites);
+  addToFavorites(movie: IVideoContent): void {
+    this.favorites.push(movie);
+    console.log('Added to favorites:', movie);
   }
 
-  setSelectedItem(item: string | null) {
-    this.selectedItemSubject.next(item);
+  removeFromFavorites(movie: IVideoContent): void {
+    this.favorites = this.favorites.filter((m) => m.id !== movie.id);
+    console.log('Removed from favorites:', movie);
+  }
+
+  isFavorite(movie: IVideoContent): boolean {
+    return this.favorites.some((m) => m.id === movie.id);
   }
 }
