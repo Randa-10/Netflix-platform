@@ -10,6 +10,8 @@ import { AuthServiceService } from '../../shared/services/auth-service.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { DescriptionPipe } from '../../shared/pipe/description.pipe';
 import { RouterModule } from '@angular/router';
+import { FavService } from '../../shared/services/fav.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -37,19 +39,33 @@ export class HeaderComponent implements OnInit {
   // https://lh3.googleusercontent.com/a/ACg8ocLUQ4LXK4GNxw2C_LWyaRHoeikGzq-qt_yM4NOa0zMRrg=s96-c
    isSmallScreen: boolean = false;
 nameLetters: any[] = [];
+myListCount!: number;
+private myListCountSubscription!: Subscription;
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+// constructor() {
+// }
+
+  constructor(private breakpointObserver: BreakpointObserver,private myListService: FavService) {
     this.breakpointObserver
       .observe([Breakpoints.XSmall])
       .subscribe((result) => {
         this.isSmallScreen = result.matches;
       });
+
   }
 //
 
 ngOnInit(): void {
   this.nameLetters = this.splitName();
+  this.myListCountSubscription = this.myListService.myListCount$.subscribe((count: number) => {
+    this.myListCount = count;
+  });
 }
+
+ngOnDestroy(): void {
+  this.myListCountSubscription.unsubscribe();
+}
+
 
 private splitName(): any[] {
   const name = this.name.split(' ')[0]; // Extract the first name

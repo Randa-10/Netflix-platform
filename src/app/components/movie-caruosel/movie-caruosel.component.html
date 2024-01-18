@@ -11,10 +11,8 @@
             <div class="vote">
               <p class="parag text-xs">
                <button [routerLink]="['/details',movie.id]" class="btndetails"> details</button>
-              
-              <a><i class="fa-regular fa-2x  fa-star" [routerLink]="['/fav']"></i></a>
               <a (click)="toggleFavorite(movie)">
-                <i class="fa-regular fa-2x fa-star" [class.favorite]="isFavorite(movie)"></i>
+                <i class="fas fa-heart fa-2x" [style.color]="isFavorite(movie) ? 'red' : 'gray'"></i>
               </a>
               </p>
             </div>

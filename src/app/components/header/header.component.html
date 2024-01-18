@@ -5,11 +5,11 @@
       <button (click)="toggleSidebar()" class="btn list btn-dark mb-3">
         <i class="fa-solid fa-x icon"></i>
       </button>
-      <a
+      <a [routerLink]="['/home']"
         ><i class="fa-solid fa-tv"></i> Home</a
       >
-      <a
-        ><i class="fa-solid fa-star"></i> My List</a
+      <a [routerLink]="['/fav']"
+        ><i class="fa-solid fa-star"></i> My List {{ myListCount }}</a
       >
       <a
         ><i class="fa-solid fa-right-to-bracket"></i> About</a
@@ -41,8 +41,12 @@
     </a>
     <div class="nav-list col-lg-6 col-md-6" *ngIf="!isSmallScreen">
       <ul class="d-flex items-center " *ngFor ="let item of navList">
-        <li class="items" [routerLink]="['/', item.toLowerCase().replace(' ', '-')]" >{{ item }}</li>
-      </ul>
+        <!-- <li class="items" [routerLink]="['/', item.toLowerCase().replace(' ', '-')]" >{{ item }}</li> -->
+
+      <li class="items" [routerLink]="['/', item.toLowerCase().replace(' ', '-')]">{{ item }}</li>
+      <li class="items" *ngIf="item.toLowerCase() === 'my list'">
+        <a routerLink="/my-list">{{ myListCount }}</a>
+      </li>  </ul>
     </div>
     <div class="col-sm-5 col-4  d-flex justify-content-end" id="navbarNav">
       <div class="welcomeUser ">

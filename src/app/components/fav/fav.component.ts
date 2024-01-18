@@ -1,20 +1,22 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FavService } from '../../shared/services/fav.service';
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { IVideoContent } from '../../shared/models/ivideo-content';
 import { ImgPipe } from "../../shared/pipe/img.pipe";
 import { HeaderComponent } from '../header/header.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
     selector: 'app-fav',
     standalone: true,
     templateUrl: './fav.component.html',
     styleUrl: './fav.component.scss',
-    imports: [NgFor, NgIf, ImgPipe,HeaderComponent,RouterModule,FooterComponent]
+    imports: [NgFor, NgIf, ImgPipe,HeaderComponent,RouterModule,FooterComponent,MatProgressSpinnerModule]
 })
 export class FavComponent implements OnInit {
+  isLoading: boolean = false;
   favorites: IVideoContent[] = [];
   userProfileImg!: string;
 
