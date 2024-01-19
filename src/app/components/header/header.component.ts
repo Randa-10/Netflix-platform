@@ -1,9 +1,6 @@
 import { CommonModule, NgIf } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
-// import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-// import { MatCommonModule } from '@angular/material/core';
-// import { MatIconButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthServiceService } from '../../shared/services/auth-service.service';
@@ -12,11 +9,12 @@ import { DescriptionPipe } from '../../shared/pipe/description.pipe';
 import { RouterModule } from '@angular/router';
 import { FavService } from '../../shared/services/fav.service';
 import { Subscription } from 'rxjs';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule,NgIf,MatIconModule,MatToolbarModule,RouterModule],
+  imports: [CommonModule,NgIf,MatIconModule,MatToolbarModule,RouterModule,MatBadgeModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
   ,
@@ -35,15 +33,10 @@ export class HeaderComponent implements OnInit {
   navList = ["Home", "My List", "About", "Contact"];
   name = JSON.parse(localStorage.getItem('loggedInUser')!).name
   profileImage=JSON.parse(localStorage.getItem('loggedInUser')!).picture
-  // profileImage="https://lh3.googleusercontent.com/a/ACg8ocLUQ4LXK4GNxw2C_LWyaRHoeikGzq-qt_yM4NOa0zMRrg=s96-c"
-  // https://lh3.googleusercontent.com/a/ACg8ocLUQ4LXK4GNxw2C_LWyaRHoeikGzq-qt_yM4NOa0zMRrg=s96-c
-   isSmallScreen: boolean = false;
-nameLetters: any[] = [];
-myListCount!: number;
-private myListCountSubscription!: Subscription;
-
-// constructor() {
-// }
+  isSmallScreen: boolean = false;
+  nameLetters: any[] = [];
+  myListCount!: number;
+  private myListCountSubscription!: Subscription;
 
   constructor(private breakpointObserver: BreakpointObserver,private myListService: FavService) {
     this.breakpointObserver
@@ -68,7 +61,7 @@ ngOnDestroy(): void {
 
 
 private splitName(): any[] {
-  const name = this.name.split(' ')[0]; // Extract the first name
+  const name = this.name.split(' ')[0];
   const letters = name.split('');
     return letters.map((letter:string, index: number) => ({
     value: letter,
@@ -76,7 +69,6 @@ private splitName(): any[] {
   }));
 }
 
-//
   toggleNavList() {
     this.isSmallScreen = !this.isSmallScreen;
     console.log('Toggling navigation list');

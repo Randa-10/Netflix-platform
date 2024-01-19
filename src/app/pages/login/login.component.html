@@ -1,5 +1,32 @@
 <div class="loginPage container-fluid">
   <div class="row justify-content-center">
+    <!-- // -->
+    <div class="container">
+      <div class="row  justify-content-between">
+        <div class="col-4  d-flex">
+          <img src="/assets/pngwing.com.png" alt="" width="150" class="img">
+        </div>
+        <div class="col-7 d-flex justify-content-end align-items-center ">
+          <div class="">
+            <button class="btn btn-light d-inline d-sm-none  " type="button">
+              <mat-select>
+                <mat-option value="option">En</mat-option>
+                <mat-option value="option">Ar</mat-option>
+              </mat-select>
+          </button>
+          <button class="btn btn-light d-none d-sm-inline  " type="button">
+            <mat-label>Language</mat-label>
+            <mat-select>
+              <mat-option value="en">English</mat-option>
+              <mat-option value="ar">Arabic</mat-option>
+            </mat-select>
+        </button>
+            <!-- <button class="btn singin mx-1" type="button" [routerLink]="['/']">Sign in</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- // -->
     <div class="form col-lg-4 col-md-6 col-sm-8 col-10">
       <div class="row">
         <h1 class="title">Sign In</h1>
@@ -31,7 +58,7 @@
           </div>
         </div>
        <span class="col-auto">New to Netflix? <a href="register" class="text-light"> Sign up now.</a> or <button class="btn mx-1 "id="google-btn"  type="button" >
-        <i class="fas fa-arrow-right ml-2"></i> 
+        <i class="fas fa-arrow-right ml-2"></i>
    </button>
       </span>
       </div>
