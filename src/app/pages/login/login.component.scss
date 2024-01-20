@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-// height:  100vh;
+  --bg-opacity: 0.5;
   background-color: rgba(0, 0, 0, var(--bg-opacity));
   overflow: hidden;
   margin: 0;
@@ -57,11 +57,14 @@ a,.col-auto{
 a:hover{
   text-decoration: underline;
 }
-
-@media (min-width: 768px) {
-  // .form{
-  //    width: 25%;
-  // }
- }
+.language{
+  // --bg-opacity: 0.5;
+  // background-color: rgba(0, 0, 0, var(--bg-opacity));
+  background-color: #d1cccc;
+  color: #ffffff;
+}
+//  .custom-select .mat-select-trigger {
+//   background-color: #4f4e4e; /* Replace #ccc with the desired gray color */
+// }
 
 
