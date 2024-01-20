@@ -1,24 +1,36 @@
-
+<div class="main">
 <app-header [userImage]="userProfileImg"/>
 <div class="favorites-container">
   <h2 class="favorites-heading">My Favorites</h2>
-
   <div *ngIf="favorites.length === 0; else hasFavorites" class="no-favorites">
     <p>No favorites yet.</p>
   </div>
-
   <ng-template #hasFavorites>
     <div class="favorites-list">
       <div *ngFor="let movie of favorites" class="favorite-item">
-        <img [src]="movie.poster_path | img" alt="{{ movie.title }}" class="poster-image" />
-        <p class="movie-title">{{ movie.title }}</p>
-        <p class="parag text-xs">
-          <button [routerLink]="['/details',movie.id]" class="btndetails"> details</button>
-         <a (click)="toggleFavorite(movie)" class="remove-favorite-button">
-          <i class="fa fa-trash"></i>         </a>
-         </p>
-      </div>
-    </div>
-  </ng-template>
+        <mat-card class="example-card">
+          <div class="remove-container">
+            <a (click)="toggleFavorite(movie)" class="remove-favorite-button">
+              <i class="fa-solid fa-xmark fa-lg"  ></i>
+            </a>
+          </div>
+          <img  class="poster-image" [src]="movie.poster_path | img" alt="{{ movie.title }}">
+          <mat-card-content>
+            <div class="body">
+              <p class=""><strong>{{ movie.title }}</strong></p>
+              <p class="">{{ movie.overview | description:120 }}</p>
+              <p class="parag text-xs">
+                <button [routerLink]="['/details', movie.id]" class="btndetails"> details</button>
+              </p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+<!-- </mat-card> -->
+</div>
+</div>
+</ng-template>
 </div>
 <app-footer/>
+</div>
+

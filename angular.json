@@ -4,6 +4,12 @@
   "newProjectRoot": "projects",
   "projects": {
     "Angular-projectt": {
+"i18n": {
+  "sourceLocale":"en-US",
+  "locales": {
+   "es=pr":"src/app/pages/login/"
+  }
+},
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {

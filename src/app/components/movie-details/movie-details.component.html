@@ -5,9 +5,8 @@
 
 <app-header [userImage]="userProfileImg"/>
 <div class="container mt-5">
-  <i class="fa-solid fa-backward" [routerLink]="['/home']" (click)="toggleTrailer()">
+    <i class="fa-solid fa-arrow-rotate-left" [routerLink]="['/home']" (click)="toggleTrailer()"></i>
     <p *ngIf="showTrailer">back to home</p>
-  </i>
   <h2 class="mb-4">Movie Details</h2>
   <div class="row ">
       <div class="col-md-3">
@@ -16,7 +15,6 @@
         </div>
       <div class="col-md-9  ">
           <ul class="list-group p-5 ">
-            <!-- <iframe [src]="movei| video"  height="315" frameborder="0" allowfullscreen></iframe> -->
             <li class=""><h2><strong>Title:</strong>{{movei?.original_title}}</h2> </li>
               <li class=""><strong>overview:</strong>{{ movei?.overview }}</li>
               <li class=""><strong>Date:</strong> {{movei?.release_date }}</li>

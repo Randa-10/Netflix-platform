@@ -7,13 +7,15 @@ import { HeaderComponent } from '../header/header.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import { DescriptionPipe } from '../../shared/pipe/description.pipe';
 @Component({
     selector: 'app-fav',
     standalone: true,
     templateUrl: './fav.component.html',
     styleUrl: './fav.component.scss',
-    imports: [NgFor, NgIf, ImgPipe,HeaderComponent,RouterModule,FooterComponent,MatProgressSpinnerModule]
+    imports: [NgFor, NgIf, DescriptionPipe,ImgPipe,HeaderComponent,RouterModule,FooterComponent,MatProgressSpinnerModule,MatCardModule, MatButtonModule]
 })
 export class FavComponent implements OnInit {
   isLoading: boolean = false;

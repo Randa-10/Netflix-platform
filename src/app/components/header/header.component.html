@@ -8,9 +8,11 @@
       <a [routerLink]="['/home']"
         ><i class="fa-solid fa-tv"></i> Home</a
       >
-      <a [routerLink]="['/fav']"
-        ><i class="fa-solid fa-star"></i> My List <span class="badge">{{ myListCount }}</span></a
-      >
+      <a [routerLink]="['/fav']">
+        <i class="fa-solid fa-star"></i> My List
+        <span class="badge" *ngIf="myListCount > 0">{{ myListCount }}</span>
+      </a>
+
       <a
         ><i class="fa-solid fa-right-to-bracket"></i> About</a
       >
@@ -43,7 +45,7 @@
 
 <ul class="d-flex items-center " *ngFor="let item of navList">
   <li class="items" [routerLink]="['/', item.toLowerCase().replace(' ', '-')]" routerLinkActive="active-link">{{ item }}</li>
-  <li class="items" *ngIf="item.toLowerCase() === 'my list'" matBadge="{{ myListCount }}" matBadgeSize="small" matBadgeColor="warn">
+  <li class="items" *ngIf="item.toLowerCase() === 'my list' && myListCount > 0" matBadge="{{ myListCount }}" matBadgeSize="small" matBadgeColor="warn">
   </li>
 </ul>
 
