@@ -27,10 +27,7 @@ export class MovieDetailsComponent implements OnInit,OnChanges {
   movei!: IVideoContent | undefined;
   productsIDSList:number[]=[];
   currentPrdIndex:number=0;
-  // constructor(private moviesService: MoviesService, private activatedRoute: ActivatedRoute,private sanitizer: DomSanitizer ) {
-  //   this.movieService = moviesService;
-  //   this.movieService2 = activatedRoute;
-  // }
+
   constructor(
     private moviesService: MoviesService,
     private activatedRoute: ActivatedRoute,
@@ -39,7 +36,7 @@ export class MovieDetailsComponent implements OnInit,OnChanges {
      ) {
     this.movieService = moviesService;
     this.movieService2 = activatedRoute;
-  
+
   }
 
   ngOnInit(): void {
