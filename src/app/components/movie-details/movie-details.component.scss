@@ -1,6 +1,6 @@
 .container
 {
-  height: 100vh;
+  // height: 100vh;
 }
 
 
@@ -17,8 +17,14 @@
   margin-bottom: 20px;
   list-style: none;
 }
-h4{
+h4 {
   cursor: pointer;
+}
+.back{
+  color:red;
+  cursor: pointer;
+  font-size: 24px;
+  // width: ;
 }
 .watch-icon {
   display: inline-block;
@@ -60,11 +66,28 @@ h4{
 .row {
   margin-bottom: 20px;
 }
-.fa-backward{
-  cursor: pointer;
-}
+
 .loading-container {
   display: grid;
   place-items: center;
   height: 100vh;
+}
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn-warning {
+  background-color: yellow;
+  color: black;
+}
+
+.btn-primary {
+  background-color: blue;
+  color: white;
 }

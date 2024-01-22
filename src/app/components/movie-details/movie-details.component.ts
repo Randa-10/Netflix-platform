@@ -2,20 +2,21 @@ import { Component, Injector, Input, OnInit, SimpleChanges, inject, OnChanges } 
 import { DescriptionPipe } from './../../shared/pipe/description.pipe';
 import { MoviesService } from '../../shared/services/movies.service';
 import { IVideoContent } from './../../shared/models/ivideo-content';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ImgPipe } from "../../shared/pipe/img.pipe";
 import { HeaderComponent } from '../header/header.component';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NgIf } from '@angular/common';
 import { VideoPipe } from '../../shared/pipe/video.pipe';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
     selector: 'app-movie-details',
     standalone: true,
     templateUrl: './movie-details.component.html',
     styleUrls: ['./movie-details.component.scss'],
-    imports: [DescriptionPipe, ImgPipe,HeaderComponent,NgIf,RouterModule,VideoPipe,MatProgressSpinnerModule]
+    imports: [DescriptionPipe, ImgPipe,HeaderComponent,NgIf,RouterModule,VideoPipe,MatProgressSpinnerModule,FooterComponent]
 })
 export class MovieDetailsComponent implements OnInit,OnChanges {
   isLoading: boolean = false;
@@ -26,10 +27,21 @@ export class MovieDetailsComponent implements OnInit,OnChanges {
   movei!: IVideoContent | undefined;
   productsIDSList:number[]=[];
   currentPrdIndex:number=0;
-  constructor(private moviesService: MoviesService, private activatedRoute: ActivatedRoute,private sanitizer: DomSanitizer ) {
+  // constructor(private moviesService: MoviesService, private activatedRoute: ActivatedRoute,private sanitizer: DomSanitizer ) {
+  //   this.movieService = moviesService;
+  //   this.movieService2 = activatedRoute;
+  // }
+  constructor(
+    private moviesService: MoviesService,
+    private activatedRoute: ActivatedRoute,
+    private sanitizer: DomSanitizer,
+    private router: Router
+     ) {
     this.movieService = moviesService;
     this.movieService2 = activatedRoute;
+  
   }
+
   ngOnInit(): void {
     this.isLoading=true
     this.movieService2.paramMap.subscribe((paramMap) => {
@@ -67,6 +79,26 @@ export class MovieDetailsComponent implements OnInit,OnChanges {
     this.showTrailer = !this.showTrailer;
   }
 
+  goToPrevious(): void {
+    if (this.currentdetai > 1) {
+      this.currentdetai--;
+      this.updateMovieDetails();
+    }
+  }
+
+  goToNext(): void {
+    // const totalMovies = 10;
+    // if (this.currentdetai < totalMovies) {
+      this.currentdetai++;
+      this.router.navigate(['/details', this.currentdetai++]);
+      this.updateMovieDetails();
+    // }
+  }
+
+  private updateMovieDetails(): void {
+    this.isLoading = true;
+    this.router.navigate(['/details', this.currentdetai]); // Assuming the route is '/movies/:id'
+  }
+
 
 }
-

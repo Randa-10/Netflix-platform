@@ -5,8 +5,7 @@
 
 <app-header [userImage]="userProfileImg"/>
 <div class="container mt-5">
-    <i class="fa-solid fa-arrow-rotate-left" [routerLink]="['/home']" (click)="toggleTrailer()"></i>
-    <p *ngIf="showTrailer">back to home</p>
+    <i class="fa-solid fa-arrow-rotate-left mb-2  back" [routerLink]="['/home']" ></i>
   <h2 class="mb-4">Movie Details</h2>
   <div class="row ">
       <div class="col-md-3">
@@ -28,6 +27,12 @@
      </ul></div>
 
   </div>
-
+<div class="navigation-buttons mb-3">
+  <button class="btn btn-danger" (click)="goToPrevious()">Previous</button>
+  <button class="btn btn-danger" (click)="goToNext()">Next</button>
 </div>
+</div>
+<!-- <app-movie-caruosel [title]="'Top Rated Movies'" [videoContents]="topRatedMovies" /> -->
+
+<app-footer/>
 </div>

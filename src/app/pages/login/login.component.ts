@@ -1,15 +1,8 @@
-import { style } from '@angular/animations';
-
-
 declare const google: any;
-
 import { Component, OnInit, inject } from '@angular/core';
 import { AfterViewInit } from '@angular/core';
-
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { log } from 'node:console';
-import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -24,7 +17,6 @@ import { MatSelectModule } from '@angular/material/select';
   standalone: true,
   imports: [CommonModule,RouterModule,MatFormFieldModule,MatSelectModule, MatInputModule, FormsModule, ReactiveFormsModule,MatFormFieldModule, MatInputModule,MatButtonModule, MatDividerModule,],
   templateUrl: './login.component.html',
-  // template: '<button (click)="showErrorModal()">Show Error Modal</button>',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit{
