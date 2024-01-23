@@ -9,13 +9,21 @@ import { ImgPipe } from '../../shared/pipe/img.pipe';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { RouterModule } from '@angular/router';
 import { FavService } from '../../shared/services/fav.service';
+import {  TranslateModule, TranslateService } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MatSelectModule } from '@angular/material/select';
 
+
+export function HttpLoaderFactory(http:HttpClient){
+  return new TranslateHttpLoader(http,'../assets/i18n','.json')
+}
 @Component({
   selector: 'app-movie-caruosel',
   standalone: true,
   templateUrl: './movie-caruosel.component.html',
   styleUrl: './movie-caruosel.component.scss',
-  imports: [NgFor, NgIf,DescriptionPipe,ImgPipe,RouterModule],
+  imports: [NgFor, NgIf,DescriptionPipe,ImgPipe,RouterModule,TranslateModule],
   animations: [
     trigger('fade', [
       transition('void => *', [
@@ -33,7 +41,7 @@ export class MovieCaruoselComponent implements OnInit, AfterViewInit {
   private breakpointObserver=inject (BreakpointObserver)
   isSmallScreen: boolean = false;
  private favoriteService=inject(FavService)
-  constructor(){
+   constructor(private TranslateService:TranslateService){
   this.breakpointObserver
   .observe([Breakpoints.XSmall, Breakpoints.Small])
   .subscribe(result => {
@@ -119,5 +127,14 @@ toggleFavorite(movie: IVideoContent): void {
   }
 
 
+///
+toggleLanguageAndDirection(): void {
+  const newLang = this.TranslateService.currentLang === 'en' ? 'ar' : 'en';
+
+  const direction = newLang === 'ar' ? 'rtl' : 'ltr';
+
+  this.TranslateService.use(newLang);
+  document.documentElement.setAttribute('dir', direction);
+}
 
 }

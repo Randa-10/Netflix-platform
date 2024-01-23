@@ -16,11 +16,18 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import Swal from 'sweetalert2';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {  TranslateModule, TranslateService } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+
+export function HttpLoaderFactory(http:HttpClient){
+  return new TranslateHttpLoader(http,'../assets/i18n','.json')
+}
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterModule, FlexLayoutModule,CommonModule,MatFormFieldModule, MatInputModule,MatButtonModule, MatDividerModule, FormsModule, ReactiveFormsModule, MatSelectModule],
+  imports: [RouterModule, TranslateModule,FlexLayoutModule,CommonModule,MatFormFieldModule, MatInputModule,MatButtonModule, MatDividerModule, FormsModule, ReactiveFormsModule, MatSelectModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -29,7 +36,8 @@ export class RegisterComponent implements OnInit{
   private router = inject(Router);
 
   email = new FormControl('', [Validators.required, Validators.email]);
-
+  constructor(private TranslateService:TranslateService){
+  }
   getErrorMessage() {
     if (this.email.hasError('required')) {
       return 'Please enter a valid email.';
@@ -59,7 +67,7 @@ export class RegisterComponent implements OnInit{
         icon: 'success',
         title: 'Successful Login',
         text: 'You have successfully logged in!',
-        confirmButtonColor: '#000', 
+        confirmButtonColor: '#000',
       })
       .then((result) => {
         if (result.isConfirmed) {
@@ -77,7 +85,7 @@ export class RegisterComponent implements OnInit{
         console.log(resp)}
     });
     google.accounts.id.renderButton(document.getElementById("google-btn"), {
-     
+
     });
 
   }
@@ -97,4 +105,14 @@ export class RegisterComponent implements OnInit{
     }
 
 }
+///
+toggleLanguageAndDirection(): void {
+  const newLang = this.TranslateService.currentLang === 'en' ? 'ar' : 'en';
+
+  const direction = newLang === 'ar' ? 'rtl' : 'ltr';
+
+  this.TranslateService.use(newLang);
+  document.documentElement.setAttribute('dir', direction);
+}
+///
 }

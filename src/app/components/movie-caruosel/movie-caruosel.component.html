@@ -10,7 +10,7 @@
             <p class="overview">{{movie.overview | description: isSmallScreen ? 120 :120}}</p>
             <div class="vote">
               <p class="parag text-xs">
-               <button [routerLink]="['/details',movie.id]" class="btndetails"> details</button>
+               <button [routerLink]="['/details',movie.id]" class="btndetails">{{ 'details' | translate }}</button>
               <a (click)="toggleFavorite(movie)">
                 <i class="fas fa-heart fa-2x" [style.color]="isFavorite(movie) ? 'red' : 'gray'"></i>
               </a>

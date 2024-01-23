@@ -13,17 +13,6 @@ import { provideHttpClient } from '@angular/common/http';
 }
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideClientHydration(), provideAnimations(),provideHttpClient(),
-    // TranslateService,importProvidersFrom(
-    //   HttpClientModule,
-    //     TranslateModule.forRoot({
-    //   defaultLanguage: 'en',
-    //   loader: {
-    //     provide: TranslateLoader,
-    //     useFactory: HttpLoaderFactory,
-    //     deps: [HttpClient]
-    //   }
-    // })
-    // ),
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {

@@ -1,5 +1,5 @@
 <div class="loading-container" *ngIf="isLoading">
-  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  <mat-progress-spinner mode="indeterminate" color="warn" diameter="60"></mat-progress-spinner>
 </div>
 <div *ngIf="!isLoading">
 
@@ -33,7 +33,6 @@
   <button class="btn btn-danger" (click)="goToNext()">Next</button>
 </div>
 </div>
-<!-- <app-movie-caruosel [title]="'Top Rated Movies'" [videoContents]="topRatedMovies" /> -->
 
 <app-footer/>
 </div>

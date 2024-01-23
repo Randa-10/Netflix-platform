@@ -11,41 +11,41 @@
             <div class="">
               <button class="btn btn-light d-inline d-sm-none  " type="button">
                 <mat-select>
-                  <mat-option value="option">En</mat-option>
-                  <mat-option value="option">Ar</mat-option>
+                  <mat-option value="option"
+                  (click)="toggleLanguageAndDirection()">En</mat-option>
+                  <mat-option value="option" (click)="toggleLanguageAndDirection()">Ar</mat-option>
                 </mat-select>
             </button>
             <button class="btn btn-light d-none d-sm-inline  " type="button">
+              <mat-label>🌐</mat-label>
               <mat-select>
-                <mat-option value="option">En</mat-option>
-                <mat-option value="option">Ar</mat-option>
+                <mat-option value="option" (click)="toggleLanguageAndDirection()">En</mat-option>
+                <mat-option value="option" (click)="toggleLanguageAndDirection()">Ar</mat-option>
               </mat-select>
           </button>
-              <button class="btn singin mx-1" type="button" [routerLink]="['/']">Sign in</button>
+              <button class="btn singin mx-1" type="button" [routerLink]="['/']">{{ 'sign_in' | translate }}</button>
             </div>
           </div>
         </div>
       </div>
       <div class="text-center mt-4 ">
-        <h1 class="title ">Unlimited movies, TV shows, and more </h1>
-        <h3>Watch anywhere. Cancel anytime.</h3>
-        <p>Ready to watch? Enter your email to create or restart your membership.</p>
+        <h1 class="title "> {{ 'Unlimited movies, TV shows, and more' | translate }} </h1>
+        <h3>{{ 'Watch anywhere. Cancel anytime.' | translate }}</h3>
+        <p>{{ 'Ready to watch? Enter your email to create or restart your membership.' | translate }}</p>
         <div class="example-container col-12  align-items-center">
           <mat-form-field class="col-lg-4" >
-            <mat-label >Enter your email</mat-label>
-            <input  matInput placeholder="pat@example.com" [formControl]="email" required>
-            @if (email.invalid) {
-              <mat-error>{{getErrorMessage()}}</mat-error>
-            }
+            <mat-label > {{ 'Enter your email' | translate }}</mat-label>
+            <input matInput placeholder="{{ 'email_placeholder' | translate }}" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{ 'email_error' | translate }}</mat-error>
           </mat-form-field>
 
         </div>
         <div class="example-container col-12  align-items-center mb-2">
-        <button class="btn singin2 mx-1 " type="button"  (click)="signIn()" >Get Started
+        <button class="btn singin2 mx-1 " type="button"  (click)="signIn()" >{{ 'Get Started' | translate }}
                  <i class="fas fa-arrow-right ml-2"></i>
             </button>
           </div>
-       <span class="col-auto"> or Sign in with google <i class="fas fa-arrow-right ml-2"></i> <button class="btn mx-1 "id="google-btn"  type="button" >
+       <span class="col-auto"> {{ 'or Sign in with google' | translate }} <i class="fas fa-arrow-right ml-2"></i> <button class="btn mx-1 "id="google-btn"  type="button" >
    </button>
 
       </span>

@@ -10,11 +10,18 @@ import { RouterModule } from '@angular/router';
 import { FavService } from '../../shared/services/fav.service';
 import { Subscription } from 'rxjs';
 import { MatBadgeModule } from '@angular/material/badge';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MatSelectModule } from '@angular/material/select';
+import {  TranslateModule, TranslateService } from '@ngx-translate/core';
 
+export function HttpLoaderFactory(http:HttpClient){
+  return new TranslateHttpLoader(http,'../assets/i18n','.json')
+}
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule,NgIf,MatIconModule,MatToolbarModule,RouterModule,MatBadgeModule],
+  imports: [CommonModule,NgIf,MatIconModule,MatToolbarModule,RouterModule,MatBadgeModule,TranslateModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
   ,
@@ -38,7 +45,8 @@ export class HeaderComponent implements OnInit {
   myListCount!: number;
   private myListCountSubscription!: Subscription;
 
-  constructor(private breakpointObserver: BreakpointObserver,private myListService: FavService) {
+  constructor(private breakpointObserver: BreakpointObserver,private myListService: FavService
+     ,private TranslateService:TranslateService) {
     this.breakpointObserver
       .observe([Breakpoints.XSmall])
       .subscribe((result) => {
@@ -84,4 +92,15 @@ private splitName(): any[] {
     localStorage.removeItem("loggedInUser");
     this.auth.signOut();
   }
+
+///
+toggleLanguageAndDirection(): void {
+  const newLang = this.TranslateService.currentLang === 'en' ? 'ar' : 'en';
+
+  const direction = newLang === 'ar' ? 'rtl' : 'ltr';
+
+  this.TranslateService.use(newLang);
+  document.documentElement.setAttribute('dir', direction);
+}
+///
 }

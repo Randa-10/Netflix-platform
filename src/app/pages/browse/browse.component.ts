@@ -11,13 +11,15 @@ import { MovieCaruoselComponent } from '../../components/movie-caruosel/movie-ca
 import { IVideoContent } from '../../shared/models/ivideo-content';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-browse',
     standalone: true,
     templateUrl: './browse.component.html',
     styleUrls: ['./browse.component.scss'],
-    imports: [CommonModule, HeaderComponent, BannerComponent,MovieCaruoselComponent,FooterComponent,MatProgressSpinnerModule]
+    imports: [CommonModule, HeaderComponent, BannerComponent,MovieCaruoselComponent
+      ,FooterComponent,MatProgressSpinnerModule,TranslateModule]
 })
 export class BrowseComponent implements OnInit {
   isLoading: boolean = false;

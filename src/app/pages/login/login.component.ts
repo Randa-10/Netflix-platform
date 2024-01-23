@@ -10,12 +10,20 @@ import Swal from 'sweetalert2';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
+import {  TranslateModule, TranslateService } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+
+export function HttpLoaderFactory(http:HttpClient){
+  return new TranslateHttpLoader(http,'../assets/i18n','.json')
+}
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule,RouterModule,MatFormFieldModule,MatSelectModule, MatInputModule, FormsModule, ReactiveFormsModule,MatFormFieldModule, MatInputModule,MatButtonModule, MatDividerModule,],
+  imports: [CommonModule,RouterModule,MatFormFieldModule,MatSelectModule,
+     MatInputModule, FormsModule, ReactiveFormsModule,MatFormFieldModule, MatInputModule,MatButtonModule, MatDividerModule,TranslateModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -24,7 +32,8 @@ export class LoginComponent implements OnInit{
 
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
-
+  constructor(private TranslateService:TranslateService){
+  }
   getErrorMessage() {
     if (this.email.hasError('required')) {
       return 'Please enter a valid email.';
@@ -62,11 +71,10 @@ export class LoginComponent implements OnInit{
         icon: 'success',
         title: 'Successful Login',
         text: 'You have successfully logged in!',
-        confirmButtonColor: '#000', // Set the color of the confirm button
+        confirmButtonColor: '#000', 
       })
       .then((result) => {
         if (result.isConfirmed) {
-          // this.router.navigate(['home']);
         }
       });
     }
@@ -100,4 +108,14 @@ export class LoginComponent implements OnInit{
     }
 
 }
+///
+toggleLanguageAndDirection(): void {
+  const newLang = this.TranslateService.currentLang === 'en' ? 'ar' : 'en';
+
+  const direction = newLang === 'ar' ? 'rtl' : 'ltr';
+
+  this.TranslateService.use(newLang);
+  document.documentElement.setAttribute('dir', direction);
+}
+///
 }

@@ -1,42 +1,48 @@
-<!-- footer.component.html -->
 
 <footer class="netflix-footer">
   <div class="footer-content">
     <div class="footer-section">
-      <h4>Netflix</h4>
+      <h4>{{ 'Netflix' | translate }}</h4>
       <ul>
-        <li>About Us</li>
-        <li>Contact Us</li>
-        <li>Careers</li>
+        <li>{{ 'About Us' | translate }}</li>
+        <li>{{ 'Contact Us' | translate }}</li>
+        <li>{{ 'Careers' | translate }}</li>
       </ul>
     </div>
 
     <div class="footer-section">
-      <h4>Help Center</h4>
+      <h4>{{ 'Help Center' | translate }}</h4>
       <ul>
-        <li>FAQ</li>
-        <li>Account</li>
-        <li>Subscriptions</li>
-        <li>Supported Devices</li>
+        <li>{{ 'FAQ' | translate }}</li>
+        <li>{{ 'Account' | translate }}</li>
+        <li>{{ 'Subscriptions' | translate }}</li>
+        <li>{{ 'Supported Devices' | translate }}</li>
       </ul>
     </div>
 
     <div class="footer-section">
-      <h4>Terms of Use</h4>
+      <h4>{{ 'Terms of Use' | translate }}</h4>
       <ul>
-        <li>Privacy Policy</li>
-        <li>Legal Notices</li>
-        <li>Cookie Preferences</li>
+        <li>{{ 'Privacy Policy' | translate }}</li>
+        <li>{{ 'Legal Notices' | translate }}</li>
+        <li>{{ 'Cookie Preferences' | translate }}</li>
       </ul>
     </div>
 
     <div class="footer-section">
-      <h4>Follow Us</h4>
+      <h4>{{ 'Follow Us' | translate }}</h4>
       <ul>
-        <li>Facebook</li>
-        <li>Twitter</li>
-        <li>Instagram</li>
+        <li>{{ 'Facebook' | translate }}</li>
+        <li>{{ 'Twitter' | translate }}</li>
+        <li>{{ 'Instagram' | translate }}</li>
       </ul>
+      <div class="footer-section">
+        <h4>{{ 'Language' | translate }}</h4>
+        <button class="language-btn" type="button" (click)="toggleLanguageAndDirection()">
+          <i class="fas fa-language"></i>
+        </button>
+      </div>
     </div>
   </div>
 </footer>
+

@@ -36,10 +36,8 @@ constructor(private TranslateService:TranslateService){
   this.TranslateService.use(lang)
 }
 toggleLanguageAndDirection(): void {
-  // Toggle between English (en) and Arabic (ar)
   const newLang = this.TranslateService.currentLang === 'en' ? 'ar' : 'en';
 
-  // Toggle between LTR and RTL based on the language
   const direction = newLang === 'ar' ? 'rtl' : 'ltr';
 
   this.TranslateService.use(newLang);

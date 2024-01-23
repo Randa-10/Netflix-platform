@@ -1,5 +1,5 @@
 <div class="loading-container" *ngIf="isLoading">
-  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  <mat-progress-spinner mode="indeterminate" color="warn" diameter="60"></mat-progress-spinner>
 </div>
 
 
@@ -9,12 +9,13 @@
               [bannerOverview]="(bannerDetail$ | async)?.overview"
               [key]="(bannerVideo$ | async)?.results[0].key" />
 
-  <app-movie-caruosel [title]="'Popular on Netflix'" [videoContents]="movies" />
-  <app-movie-caruosel [title]="'Trending TV shows'" [videoContents]="tvShows" />
-  <app-movie-caruosel [title]="'Now Playing Movies'" [videoContents]="nowPlayingMovies" />
-  <app-movie-caruosel [title]="'Popular Movies'" [videoContents]="popularMovies" />
-  <app-movie-caruosel [title]="'Top Rated Movies'" [videoContents]="topRatedMovies" />
-  <app-movie-caruosel [title]="'Upcoming Movies'" [videoContents]="upcomingMovies" />
+              <app-movie-caruosel [title]="'Popular on Netflix' | translate" [videoContents]="movies" />
+              <app-movie-caruosel [title]="'Trending TV shows' | translate" [videoContents]="tvShows" />
+              <app-movie-caruosel [title]="'Now Playing Movies' | translate" [videoContents]="nowPlayingMovies" />
+              <app-movie-caruosel [title]="'Popular Movies' | translate" [videoContents]="popularMovies" />
+              <app-movie-caruosel [title]="'Top Rated Movies' | translate" [videoContents]="topRatedMovies" />
+              <app-movie-caruosel [title]="'Upcoming Movies' | translate" [videoContents]="upcomingMovies" />
+
 
   <app-footer/>
 </div>
