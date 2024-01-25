@@ -9,7 +9,14 @@
   overflow: hidden;
   margin: 0;
 }
+.formmain{
 
+    color: #ffffff;
+    background-color: #000000;
+// height: 100vh;
+    --bg-opacity: 0.6;
+    background-color: rgba(0, 0, 0, var(--bg-opacity));
+}
 .form{
 padding: 3rem;
 margin-top: 5rem;
@@ -45,6 +52,10 @@ font-weight: 700;
 mat-error ,mat-label{
   color: #946811;
 }
+.language2{
+  color: #f8e7c5;
+
+}
 input{
   border-bottom: #946811 1px solid;
 
@@ -59,9 +70,14 @@ a:hover{
 }
 .language{
 
-  background-color: #d1cccc;
+  background-color: #313131;
   color: #ffffff;
+  --bg-opacity: 0.6;
+    background-color: rgba(0, 0, 0, var(--bg-opacity));
+    border: #fcf8f8 1px solid;
 }
 
 
-
+mat-select {
+  color: #e50914;
+}

@@ -17,12 +17,17 @@
                 </mat-select>
             </button>
             <button class="btn btn-light d-none d-sm-inline  " type="button">
-              <mat-label>🌐</mat-label>
               <mat-select>
                 <mat-option value="option" (click)="toggleLanguageAndDirection()">En</mat-option>
                 <mat-option value="option" (click)="toggleLanguageAndDirection()">Ar</mat-option>
               </mat-select>
           </button>
+          <!-- <div class="footer-section">
+            <h4>{{ 'Language' | translate }}</h4>
+            <button class="language-btn" type="button" (click)="toggleLanguageAndDirection()">
+              <i class="fas fa-language"></i>
+            </button>
+          </div> -->
               <button class="btn singin mx-1" type="button" [routerLink]="['/']">{{ 'sign_in' | translate }}</button>
             </div>
           </div>

@@ -1,4 +1,5 @@
-<div class="loginPage container-fluid">
+<div class="loginPage ">
+  <div class="formmain">
   <div class="row justify-content-center">
     <div class="container">
       <div class="row  justify-content-between">
@@ -7,14 +8,14 @@
         </div>
         <div class="col-7 d-flex justify-content-end align-items-center ">
           <div class="">
-            <button class="btn btn-light d-inline d-sm-none  " type="button">
-              <mat-select>
+            <button class="btn btn-light d-inline d-sm-none mx-3 " type="button">
+              <mat-select class="custom-select">
                 <mat-option value="option" (click)="toggleLanguageAndDirection()">En</mat-option>
                 <mat-option value="option" (click)="toggleLanguageAndDirection()">Ar</mat-option>
               </mat-select>
           </button>
-          <button class="btn language d-none d-sm-inline  " type="button">
-            <mat-label>{{ 'Language🌐' | translate }}</mat-label>
+          <button class="btn language d-none d-sm-inline mx-3 " type="button">
+            <mat-label class="language2">{{ 'Language🌐' | translate }}</mat-label>
             <mat-select class="custom-select">
               <mat-option value="en" (click)="toggleLanguageAndDirection()">{{ 'English' | translate }}</mat-option>
               <mat-option value="ar" (click)="toggleLanguageAndDirection()">{{ 'Arabic' | translate }}</mat-option>
@@ -24,11 +25,9 @@
         </div>
       </div>
     </div>
-    <!-- // -->
     <div class="form col-lg-4 col-md-6 col-sm-8 col-10">
       <div class="row">
         <h1 class="title">{{ 'sign_in' | translate }}</h1>
-
         <div class="example-container col-12 mt-2 mb-2">
           <mat-form-field class="col-12 mt-2 mb-2">
             <mat-label>{{ 'enter_email' | translate }}</mat-label>
@@ -71,6 +70,5 @@
         </span>
       </div>
     </div>
-
   </div>
-</div>
+</div></div>

@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit{
         icon: 'success',
         title: 'Successful Login',
         text: 'You have successfully logged in!',
-        confirmButtonColor: '#000', 
+        confirmButtonColor: '#000',
       })
       .then((result) => {
         if (result.isConfirmed) {
@@ -90,6 +90,7 @@ export class LoginComponent implements OnInit{
     google.accounts.id.renderButton(document.getElementById("google-btn"), {
 
     });
+    this.setLanguage('en');
 
   }
 
@@ -108,14 +109,30 @@ export class LoginComponent implements OnInit{
     }
 
 }
-///
+// ///
+// toggleLanguageAndDirection(): void {
+//   const newLang = this.TranslateService.currentLang === 'en' ? 'ar' : 'en';
+
+//   const direction = newLang === 'ar' ? 'rtl' : 'ltr';
+
+//   this.TranslateService.use(newLang);
+//   document.documentElement.setAttribute('dir', direction);
+// }
+// ///
+// ngOnInit(): void {
+  // Set English as the default language on component initialization
+// }
+
 toggleLanguageAndDirection(): void {
   const newLang = this.TranslateService.currentLang === 'en' ? 'ar' : 'en';
-
   const direction = newLang === 'ar' ? 'rtl' : 'ltr';
-
-  this.TranslateService.use(newLang);
+  this.setLanguage(newLang);
   document.documentElement.setAttribute('dir', direction);
 }
-///
+
+setLanguage(lang: string): void {
+  this.TranslateService.use(lang);
+}
+
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID, inject } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, inject, HostListener, ElementRef, Renderer2 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { AuthServiceService } from '../../shared/services/auth-service.service';
@@ -31,7 +31,7 @@ export class BrowseComponent implements OnInit {
   bannerDetail$!: Observable<any>;
   bannerVideo$!: Observable<any>;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,private el: ElementRef,private renderer: Renderer2) {}
   movies: IVideoContent[] = [];
   tvShows: IVideoContent[] = [];
   ratedMovies: IVideoContent[] = [];
@@ -84,5 +84,19 @@ export class BrowseComponent implements OnInit {
   signOut(){
     sessionStorage.removeItem("loggedInUser");
     this.auth.signOut();
+  }
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Show/hide scroll-to-top button based on scroll position
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const scrollToTopButton = this.el.nativeElement.querySelector('.scroll-to-top');
+
+    if (scrollToTopButton) {
+      this.renderer.setStyle(scrollToTopButton, 'display', scrollPosition > 300 ? 'block' : 'none');
+    }
   }
 }

@@ -16,6 +16,8 @@
               <app-movie-caruosel [title]="'Top Rated Movies' | translate" [videoContents]="topRatedMovies" />
               <app-movie-caruosel [title]="'Upcoming Movies' | translate" [videoContents]="upcomingMovies" />
 
-
+              <button class="scroll-to-top" (click)="scrollToTop()">
+                <i class="fa fa-arrow-up"></i>
+            </button>
   <app-footer/>
 </div>
