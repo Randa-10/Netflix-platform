@@ -1,7 +1,14 @@
 
-.mainCoursel{
+// .mainCoursel{
+//   padding-left: 2rem;
+//   // padding-right: 9rem;
+//   margin-top: 3.5rem;
+//   margin-bottom: 5rem;
+//   color: aliceblue;
+// }
+.mainCoursel {
+  overflow-x:hidden; /* Prevent horizontal scrolling */
   padding-left: 2rem;
-  // padding-right: 9rem;
   margin-top: 3.5rem;
   margin-bottom: 5rem;
   color: aliceblue;

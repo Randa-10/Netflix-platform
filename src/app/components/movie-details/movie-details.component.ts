@@ -94,7 +94,7 @@ export class MovieDetailsComponent implements OnInit,OnChanges {
 
   private updateMovieDetails(): void {
     this.isLoading = true;
-    this.router.navigate(['/details', this.currentdetai]); // Assuming the route is '/movies/:id'
+    this.router.navigate(['/details', this.currentdetai]); 
   }
 
 
